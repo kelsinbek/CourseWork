@@ -13,10 +13,16 @@
   @Controller
   @RequiredArgsConstructor
   public class MainController {
-    @GetMapping("/")
-    public String login(Model model) {
+    @GetMapping("/register")
+    public String register(Model model) {
       model.addAttribute("title", "Главная страница");
       return "register";
+
+    }
+    @GetMapping("/login")
+    public String login(Model model) {
+      model.addAttribute("title", "Главная страница");
+      return "login";
 
     }
 
