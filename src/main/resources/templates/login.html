@@ -1,170 +1,72 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/login.css">
-    <title>Hello, world!</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/register.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <style>
-        .center-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .form-control-lg {
-            height: calc(2.5rem + 2px);
-            padding: 0.5rem 1rem;
-            font-size: 1.25rem;
-        }
-
-        .btn-lg {
-            padding: 0.50rem 80px;
-            font-size: 1.30rem;
-        }
-    </style>
-
+    <title>TestStudent</title>
 </head>
-<body>
+<body class="postition-relative">
+<!--<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">-->
+<!--    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">-->
+<!--        <path-->
+<!--                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>-->
+<!--    </symbol>-->
+<!--</svg>-->
 
 <div class="container">
-    <div class="row center-form">
-        <div class="col-md-6">
-            <img src="/images/IconFreeJRT.png" alt="Image">
-        </div>
-        <div class="col-md-6">
-            <h2 class="text-center mb-4">Добро пожаловать в наш сайт</h2>
-            <form>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Пароль:</label>
-                    <input type="password" class="form-control" id="password">
-                </div>
-                <br>
-                <div class="mb-3 text-center">
-                    <button type="submit" class="btn btn-dark btn-lg">Войти</button>
-                </div>
-            </form>
-        </div>
+    <div class="img">
+        <img src="/images/Exams-bro.svg">
     </div>
+    <div class="login-content">
+        <form action="/register" method="post" class="ms-5" modelAttribute="newStudent">
+
+
+            <h2 class="title">Welcome</h2>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input type="email" class="input" name="email" required>
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" class="input" name="password" required>
+                </div>
+            </div>
+
+            <!--    <div class="account-type-style">Student</div>-->
+
+
+
+            <!--    <input type="text" name="accountType" value="student" hidden>-->
+            <input type="submit" class="btn text-white" value="Sign in">
+            <div class="d-flex flex-row justify-content-center">Already have account? <a href="http://localhost:8080/register">Go here</a></div>
+        </form>
+    </div>
+
 </div>
 
 
+<script type="text/javascript" src="/static/js/register.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
-
-
-
-
-
-
-
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-<!-- Option 2: Separate Popper and Bootstrap js -->
-<!--
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
--->
-
-
-<!--<p th:text="'Hello, ' + ${name} + '!'" />-->
-<!--</body>-->
-<!--</html>-->
-
-
-
-
-
-
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-
-<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/login.css">-->
-
-<!--    <title>Hello, world!</title>-->
-
-<!--    <style>-->
-<!--        .center-form {-->
-<!--            display: flex;-->
-<!--            justify-content: center;-->
-<!--            align-items: center;-->
-<!--            min-height: 100vh;-->
-<!--        }-->
-
-<!--        .form-control-lg {-->
-<!--            height: calc(2.5rem + 2px);-->
-<!--            padding: 0.5rem 1rem;-->
-<!--            font-size: 1.25rem;-->
-<!--        }-->
-
-<!--        .btn-lg {-->
-<!--            padding: 0.50rem 80px;-->
-<!--            font-size: 1.30rem;-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--<div class="container">-->
-<!--    <div class="row center-form">-->
-<!--        <div class="col-md-6">-->
-<!--            <img src="/static/images/IconFreeJRT.png" alt="Image">-->
-<!--        </div>-->
-<!--        <div class="col-md-6">-->
-<!--            <h2 class="text-center mb-4">Добро пожаловать в наш сайт</h2>-->
-<!--            <form>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="email">Email:</label>-->
-<!--                    <input type="email" class="form-control" id="email">-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="password">Пароль:</label>-->
-<!--                    <input type="password" class="form-control" id="password">-->
-<!--                </div>-->
-<!--                <br>-->
-<!--                <div class="mb-3 text-center">-->
-<!--                    <button type="submit" class="btn btn-dark btn-lg">Войти</button>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
-
-
-
-
-
-
-
-<!--&lt;!&ndash; Optional JavaScript; choose one of the two! &ndash;&gt;-->
-
-<!--&lt;!&ndash; Option 1: Bootstrap Bundle with Popper &ndash;&gt;-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
-
-<!--&lt;!&ndash; Option 2: Separate Popper and Bootstrap js &ndash;&gt;-->
-<!--&lt;!&ndash;-->
-<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>-->
-<!--&ndash;&gt;-->
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>
