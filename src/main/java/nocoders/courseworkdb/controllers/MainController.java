@@ -15,17 +15,23 @@
   public class MainController {
     @GetMapping("/register")
     public String register(Model model) {
-      model.addAttribute("title", "Главная страница");
+      model.addAttribute("title", "Страница регистрации");
       return "register";
 
     }
     @GetMapping("/login")
     public String login(Model model) {
-      model.addAttribute("title", "Главная страница");
+      model.addAttribute("title", "Страница входа");
       return "login";
 
     }
 
+    @GetMapping("/")
+    public String profile(Model model) {
+      model.addAttribute("title", "Страница абитуриента");
+      return "profile";
+
+    }
   }
 
 
