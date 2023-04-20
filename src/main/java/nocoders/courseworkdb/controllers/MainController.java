@@ -30,8 +30,14 @@
     public String profile(Model model) {
       model.addAttribute("title", "Страница абитуриента");
       return "profile";
+    }
 
+    @GetMapping("/test")
+    public String test(Model model) {
+      model.addAttribute("title", "Станица тестировании");
+      return "test";
     }
   }
+
 
 
