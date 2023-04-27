@@ -21,12 +21,13 @@
     <img th:src="@{/images/exam.svg}" alt="image">
   </div>
   <div class="text-box">
-    <h1 class="mb-5 text-center">Spring Boot Quiz App</h1>
+    <h1 class="mb-5 text-center">Math
+    </h1>
     <form class="card bg-dark py-5 px-4" action="/quiz" method="POST">
       <p>Enter Your Name</p>
       <input type="text" name="username" />
       <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
-      <button type="submit" class="btn btn-warning">Start Quiz</button>
+      <button type="submit" class="btn btn-light">Start Quiz</button>
     </form>
   </div>
 </div>
