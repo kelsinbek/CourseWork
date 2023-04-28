@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 
 <head>
@@ -24,13 +24,14 @@
                 <strong style="font-size: 35px; margin-left: 10px">Free JRT</strong>
             </a>
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="margin-right: 120px; font-size: 20px;">
+                <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: white" href="http://localhost:8080/">Главная страница</a>
                 <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: white" href="#">Тесты</a>
                 <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: white" href="#">О нас</a>
                 <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: white" href="#">Ресурсы</a>
             </nav>
-            <a href="#">
-                <button type="button" class="w-10 btn btn-lg btn-light">@drbvmirlan03@gmail.com</button>
-            </a>
+                <span class="text-light" sec:authentication="principal.username"> User </span>
+                <h6>""</h6>
+                <span class="text-light" sec:authorize="isAuthenticated()"><a class="text-light" th:href="@{/logout}"> Logout</a></span>
         </div>
     </div>
 </header>
@@ -52,17 +53,17 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <a href="http://localhost:8080/index">
-                <img src="/images/geografia.png" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">География</h5>
-                    <p class="card-text">Геогра́фия — комплекс естественных и общественных наук, изучающих структуру, функционирование и эволюцию географической оболочки.</p>
-                </div>
-            </div>
-        </div>
+<!--        <div class="col">-->
+<!--            <div class="card h-100">-->
+<!--                <a href="http://localhost:8080/index">-->
+<!--                <img src="/images/geografia.png" class="card-img-top" alt="...">-->
+<!--                </a>-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">География</h5>-->
+<!--                    <p class="card-text">Геогра́фия — комплекс естественных и общественных наук, изучающих структуру, функционирование и эволюцию географической оболочки.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <a href="#" class="btn btn-secondar" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <svg xmlns="http://www.w3.org/2000/svg" color="grey" width="350" height="350" fill="currentColor"
                  class="bi bi-plus-square-fill" viewBox="0 0 16 16">

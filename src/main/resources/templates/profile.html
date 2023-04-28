@@ -1,5 +1,6 @@
   <!DOCTYPE HTML>
-  <html xmlns:th="http://www.thymeleaf.org">
+  <html xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +24,17 @@
           <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: white" href="#">О нас</a>
           <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: white" href="#">Ресурсы</a>
         </nav>
-        <a href="http://localhost:8080/login">
-          <button type="button" class="me-5 w-10 btn btn-lg btn-outline-light">Войти</button>
-        </a>
-        <a href="http://localhost:8080/register">
-          <button type="button" class="w-10 btn btn-lg btn-light">Зарегистрироваться</button>
-        </a>
+<!--        <a href="http://localhost:8080/login">-->
+<!--          <button type="button" class="me-5 w-10 btn btn-lg btn-outline-light">Войти</button>-->
+<!--        </a>-->
+<!--        <a href="http://localhost:8080/register">-->
+<!--          <button type="button" class="w-10 btn btn-lg btn-light">Зарегистрироваться</button>-->
+<!--        </a>-->
+
+        <span class="text-light" sec:authentication="principal.username"> User </span>
+        <h6>""</h6>
+        <span class="text-light" sec:authorize="isAuthenticated()"><a class="text-light" th:href="@{/logout}"> Logout</a></span>
+
       </div>
     </div>
   </header>
@@ -39,10 +45,10 @@
       <div class="row align-items-md-stretch py-5">
         <div class="col-md-6">
           <h2 style="font-weight: bold">Пройдите бесплатный <br> тест в Free JRT</h2>
-          <button type="button" class="btn btn-dark" style="margin-top: 50px">Давайте начнем!</button>
+          <button type="button" class="btn btn-dark" style="margin-top: 50px" onclick="window.location.href='http://localhost:8080/test'">Давайте начнем!</button>
         </div>
         <div class="col-md-6">
-          <img src="/images/fon_saita.png" alt="картинка на сайте" width="500" height="300">
+          <img src="/images/fon_saita.png" alt="картинка на сайте"  width="500" height="300">
         </div>
       </div>
     </div>
