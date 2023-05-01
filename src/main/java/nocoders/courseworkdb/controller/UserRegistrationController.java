@@ -54,7 +54,7 @@ public class UserRegistrationController {
         } catch (ServletException e) {
             e.printStackTrace();
         }
-        return "redirect:/profile";
+        return "redirect:/";
     }
 
 

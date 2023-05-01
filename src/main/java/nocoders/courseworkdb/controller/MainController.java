@@ -26,8 +26,8 @@ public class MainController {
 
     @GetMapping("/")
     public String profile(Model model) {
-      model.addAttribute("title", "Страница абитуриента");
-      return "profile";
+        model.addAttribute("title", "Страница абитуриента");
+        return "profile";
     }
 
 
