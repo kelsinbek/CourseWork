@@ -4,6 +4,8 @@ import nocoders.courseworkdb.model.QuestionForm;
 import nocoders.courseworkdb.model.Result;
 import nocoders.courseworkdb.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,44 +37,28 @@ public class TestController {
         return result;
     }
 
-    @GetMapping("/test/index")
-    public String home() {
-        return "index.html";
+//    @GetMapping("/test/index")
+//    public String home() {
+//        return "startTest";
+//    }
+
+    @GetMapping("/test/startTest")
+    public String startTest(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        System.out.println(auth.getName());
+        model.addAttribute("username", username);
+        return "startTest";
     }
 
-//    @GetMapping("/quiz")
-//    public String quizPage() {
-//        return "quiz.html"; // quiz.html должен быть расположен в папке templates
-//    }
 
-//    @PostMapping("/quiz")
-//    public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
-//        if(username.equals("")) {
-//            ra.addFlashAttribute("warning", "You must enter your name");
-//            return "redirect:/";
-//        }
-//
-//        submitted = false;
-//        result.setUsername(username);
-//
-//        QuestionForm qForm = qService.getQuestions();
-//        m.addAttribute("qForm", qForm);
-//
-//
-//        return "quiz.html";
-//    }
-
-//    @GetMapping("/quiz")
-//    public String quiz() {
-//        return "quiz.html";
-//    }
 
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
         try {
             if(username.equals("")) {
                 ra.addFlashAttribute("warning", "You must enter your name");
-                return "redirect:/index";
+                return "redirect:/startTest";
             }
 
             submitted = false;
@@ -97,7 +83,7 @@ public class TestController {
             submitted = true;
         }
 
-        return "result.html";
+        return "result";
     }
 
     @GetMapping("/score")
@@ -105,7 +91,7 @@ public class TestController {
         List<Result> sList = qService.getTopScore();
         m.addAttribute("sList", sList);
 
-        return "scoreboard.html";
+        return "scoreboard";
     }
 
 }
@@ -144,7 +130,7 @@ public class TestController {
 //
 //    @GetMapping("/index")
 //    public String home() {
-//        return "index.html";
+//        return "startTest.html";
 //    }
 //
 ////    @GetMapping("/quiz")
