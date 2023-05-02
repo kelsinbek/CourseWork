@@ -64,4 +64,22 @@ public class QuizService {
 
         return sList;
     }
+
+
+
+
+    public List<Question> listAll() {
+        return qRepo.findAll();
+    }
+    public void save(Question question) {
+        qRepo.save(question);
+    }
+
+    public Question get(int quesId) {
+        return qRepo.findById(quesId).get();
+    }
+
+    public void delete(int quesId) {
+        qRepo.deleteById(quesId);
+    }
 }

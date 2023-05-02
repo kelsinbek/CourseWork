@@ -29,6 +29,4 @@ public class MainController {
         model.addAttribute("title", "Страница абитуриента");
         return "profile";
     }
-
-
 }

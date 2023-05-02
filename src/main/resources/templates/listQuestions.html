@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <h2>Список всех математических вопросов</h2>
+    <tr>
+        <div align="center">
+            <h3><a th:href="@{'/new'}">Add new +</a></h3>
+        </div>
+    </tr>
+    <tr>
+        <div class="col-xl-12" align="center">
+            <div class="panel-body" align="center">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>№</th>
+                        <th>Вопросы</th>
+                        <th>Вариант А</th>
+                        <th>Вариант Б</th>
+                        <th>Вариант В</th>
+                        <th>Прав.ответ</th>
+                        <th>Кол.выбрать</th>
+                        <th>Изменить</th>
+                        <th>Удалить</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="question : ${listQuestion}">
+                        <td th:text="${question.quesId}">id</td>
+                        <td th:text="${question.title}">Вопрос</td>
+                        <td th:text="${question.optionA}">Вариант А</td>
+                        <td th:text="${question.optionB}">Вариант Б</td>
+                        <td th:text="${question.optionC}">Вариант В</td>
+                        <td th:text="${question.ans}">Ответ</td>
+                        <td th:text="${question.chose}">Выбор</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${question.quesId}}">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/delete/' + ${question.quesId}}">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </tr>
+
+    </tbody>
+    </table>
+    <div>
+    </div>
+</div>
+</body>
+</html>
