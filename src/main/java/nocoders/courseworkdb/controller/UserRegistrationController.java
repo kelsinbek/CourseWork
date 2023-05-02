@@ -54,7 +54,7 @@ public class UserRegistrationController {
         } catch (ServletException e) {
             e.printStackTrace();
         }
-        return "redirect:/";
+        return String.format("redirect:/%s/",registrationDto.getEmail());
     }
 
 

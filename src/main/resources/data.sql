@@ -310,6 +310,15 @@ VALUES (
        );
 
 
+-- CREATE TABLE subject (
+--                          subject_id SERIAL PRIMARY KEY,
+--                          name VARCHAR(255) NOT NULL
+-- );
+--
+-- ALTER TABLE questions ADD COLUMN subject_id INTEGER REFERENCES subject(subject_id);
+
+
+
 
 
 
