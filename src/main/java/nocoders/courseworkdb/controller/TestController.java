@@ -22,7 +22,7 @@ public class TestController {
     @GetMapping("/test")
     public String test(Model model) {
         model.addAttribute("title", "Станица тестировании");
-        return "test";
+        return "StudentTest";
     }
 
     @Autowired
@@ -54,7 +54,7 @@ public class TestController {
 
 
     @PostMapping("/quiz")
-    public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
+    public String quiz(@RequestParam String username  , Model m, RedirectAttributes ra) {
         try {
             if(username.equals("")) {
                 ra.addFlashAttribute("warning", "You must enter your name");
@@ -65,6 +65,7 @@ public class TestController {
             result.setUsername(username);
 
             QuestionForm qForm = qService.getQuestions();
+//                QuestionForm qForm = qService.getQuestionsBySubjectId(subjectId);
             m.addAttribute("qForm", qForm);
 
             return "quiz";

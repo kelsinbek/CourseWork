@@ -15,6 +15,9 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int quesId;
+
+//    private int subject_id;
+
     private String title;
     private String optionA;
     private String optionB;
@@ -35,7 +38,16 @@ public class Question {
         this.optionC = optionC;
         this.ans = ans;
         this.chose = chose;
+//        this.subject_id = subject_id;
     }
+
+//    public int getSubject_id() {
+//        return subject_id;
+//    }
+//
+//    public void setSubject_id(int subject_id) {
+//        this.subject_id = subject_id;
+//    }
 
     public int getQuesId() {
         return quesId;

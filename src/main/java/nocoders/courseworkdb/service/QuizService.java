@@ -25,6 +25,25 @@ public class QuizService {
     @Autowired
     ResultRepo rRepo;
 
+
+//    public QuestionForm getQuestionsBySubjectId(int subject_id) {
+//        List<Question> allQues = qRepo.findBySubjectId(subject_id);
+//        List<Question> qList = new ArrayList<Question>();
+//
+//        Random random = new Random();
+//
+//        for(int i=0; i<5 && i<allQues.size(); i++) {
+//            int rand = random.nextInt(allQues.size());
+//            qList.add(allQues.get(rand));
+//            allQues.remove(rand);
+//        }
+//
+//        qForm.setQuestions(qList);
+//
+//        return qForm;
+//    }
+
+
     public QuestionForm getQuestions() {
         List<Question> allQues = qRepo.findAll();
         List<Question> qList = new ArrayList<Question>();
