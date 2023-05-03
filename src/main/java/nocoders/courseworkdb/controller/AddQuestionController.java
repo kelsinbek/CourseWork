@@ -25,13 +25,13 @@ public class AddQuestionController {
         List<Question> listQuestion = quizService.listAll();
         model.addAttribute("listQuestion", listQuestion);
         System.out.print("Get / ");
-        return "listQuestions";
+        return "admin/listQuestions";
     }
 
     @GetMapping("/new")
     public String add(Model model) {
         model.addAttribute("question", new Question());
-        return "new";
+        return "admin/new";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

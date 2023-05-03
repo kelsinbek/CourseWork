@@ -77,6 +77,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -107,16 +108,51 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable().
+//                authorizeRequests()
+//                .antMatchers("/registration**", "/js/**", "/css/**", "/img/**", "/templates/**", "**/*.html").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/")
+//                .loginProcessingUrl("/login")
+//                .defaultSuccessUrl("/profile")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .invalidateHttpSession(true)
+//                .clearAuthentication(true)
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                .logoutSuccessUrl("/login?logout")
+//                .permitAll();
+//    }
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().
-                authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
+//                .antMatchers("/adminLogin", "/adminProfile", "/adminTest").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/users/**").hasAuthority("ROLE_USER")
                 .antMatchers("/registration**", "/js/**", "/css/**", "/img/**", "/templates/**", "**/*.html").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/users/profile")
+                .successHandler((request, response, authentication) -> {
+                    for (GrantedAuthority auth : authentication.getAuthorities()) {
+                        if (auth.getAuthority().equals("ROLE_ADMIN")) {
+                            response.sendRedirect("/admin/profile");
+                        } else {
+                            response.sendRedirect("/users/profile");
+                        }
+                    }
+                })
                 .permitAll()
                 .and()
                 .logout()
@@ -125,5 +161,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
+
     }
+
+
+
+
 }

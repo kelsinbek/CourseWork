@@ -36,11 +36,11 @@ public class UserRegistrationController {
     @GetMapping
     public String showRegistrationForm()
     {
-        return "registration";
+        return "users/registration";
     }
 
 //	@PostMapping
-//	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto)
+//	public String registerUserAccount(@ModelAttribute("users") UserRegistrationDto registrationDto)
 //	{
 //		userService.save(registrationDto);
 //		return "redirect:/index";
@@ -54,7 +54,7 @@ public class UserRegistrationController {
         } catch (ServletException e) {
             e.printStackTrace();
         }
-        return String.format("redirect:/%s/",registrationDto.getEmail());
+        return "redirect:/users/profile";
     }
 
 

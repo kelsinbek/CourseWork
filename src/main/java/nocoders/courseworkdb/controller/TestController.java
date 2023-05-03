@@ -20,7 +20,7 @@ public class TestController {
     @GetMapping("/test")
     public String test(Model model) {
         model.addAttribute("title", "Станица тестировании");
-        return "StudentTest";
+        return "users/StudentTest";
     }
 
     @Autowired
@@ -46,7 +46,7 @@ public class TestController {
         String username = auth.getName();
         System.out.println(auth.getName());
         model.addAttribute("username", username);
-        return "startTest";
+        return "users/startTest";
     }
 
 
@@ -56,7 +56,7 @@ public class TestController {
         try {
             if(username.equals("")) {
                 ra.addFlashAttribute("warning", "You must enter your name");
-                return "redirect:/startTest";
+                return "redirect:users/startTest";
             }
 
             submitted = false;
@@ -66,7 +66,7 @@ public class TestController {
 //                QuestionForm qForm = qService.getQuestionsBySubjectId(subjectId);
             m.addAttribute("qForm", qForm);
 
-            return "quiz";
+            return "users/quiz";
         } catch(Exception e) {
             ra.addFlashAttribute("error", "An error occurred: " + e.getMessage());
             return "redirect:/error";
@@ -82,7 +82,7 @@ public class TestController {
             submitted = true;
         }
 
-        return "result";
+        return "users/result";
     }
 
     @GetMapping("/score")
@@ -90,7 +90,7 @@ public class TestController {
         List<Result> sList = qService.getTopScore();
         m.addAttribute("sList", sList);
 
-        return "scoreboard";
+        return "users/scoreboard";
     }
 
 }

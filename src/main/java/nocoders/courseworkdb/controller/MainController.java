@@ -9,14 +9,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class MainController {
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+//    @GetMapping("/users/login")
+//    public String login() {
+//        return "users/login";
+//    }
 
-    @GetMapping("/")
+//    @GetMapping("/")
+//    public String loginAs(){
+//        return "loginAs";
+//    }
+
+    @GetMapping("/users/profile")
     public String profile(Model model) {
         model.addAttribute("title", "Страница абитуриента");
-        return "main";
+        return "users/main";
+    }
+
+//    @GetMapping("/admin/login")
+//    public String adminPage(Model model) {
+//        model.addAttribute("title", "Страница абитуриента");
+//        return "admin/login";
+//    }
+
+    @GetMapping("/admin/profile")
+    public String adminPage(){
+        return "admin/main";
+    }
+
+    @GetMapping("/login")
+    public String UserPage(Model model) {
+        model.addAttribute("title", "Страница абитуриента");
+        return "users/login";
     }
 }

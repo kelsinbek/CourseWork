@@ -15,7 +15,7 @@
 <body>
 
 <!-- Importing NavBar -->
-<div th:insert="navbar.html :: navbar"></div>
+<div th:insert="users/navbar.html :: navbar"></div>
 
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
@@ -36,7 +36,7 @@
 
     <div class="d-flex justify-content-center">
       <p>Total false answer:&nbsp;&nbsp;</p>
-      <p th:if="${result}" th:text="5 - ${result.totalCorrect}"></p>
+      <p th:if="${result}" th:text="15 - ${result.totalCorrect}"></p>
     </div>
 
     <div class="d-flex justify-content-center mt-4">
@@ -49,7 +49,7 @@
 </div>
 
 <!-- Importing Footer -->
-<div th:insert="footer.html :: footer"></div>
+<div th:insert="users/footer.html :: footer"></div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
