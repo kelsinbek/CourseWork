@@ -12,7 +12,7 @@
     <h1>Create New Question</h1>
     <br/>
     <div class="col-sm-4">
-        <form action="q" th:action="@{/save}" th:object="${question}" method="post">
+        <form action="q" th:action="@{save}" th:object="${question}" method="post">
 
             <div alight="left">
                 <tr>
@@ -65,7 +65,10 @@
                 <tr>
                     <label class="form-label">Выбор</label>
                     <td>
-                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose"/>
+<!--                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose"/>-->
+                        <input type="hidden" th:field="*{chose}" th:value="-1"/>
+
+
                     </td>
                 </tr>
             </div>

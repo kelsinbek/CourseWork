@@ -8,7 +8,7 @@ public class AboutUsController {
 
     @GetMapping("/aboutUs")
     public String aboutUs(){
-        return "/aboutUs";
+        return "users/aboutUs";
     }
 
 }

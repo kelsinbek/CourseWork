@@ -11,7 +11,7 @@
     <h2>Список всех математических вопросов</h2>
     <tr>
         <div align="center">
-            <h3><a th:href="@{'/new'}">Add new +</a></h3>
+            <h3><a th:href="@{'new/'}">Add new +</a></h3>
         </div>
     </tr>
     <tr>
@@ -41,10 +41,10 @@
                         <td th:text="${question.ans}">Ответ</td>
                         <td th:text="${question.chose}">Выбор</td>
                         <td>
-                            <a th:href="@{'/edit/' + ${question.quesId}}">Edit</a>
+                            <a th:href="@{'edit/' + ${question.quesId}}">Edit</a>
                         </td>
                         <td>
-                            <a th:href="@{'/delete/' + ${question.quesId}}">Delete</a>
+                            <a th:href="@{'delete/' + ${question.quesId}}">Delete</a>
                         </td>
                     </tr>
                     </tbody>

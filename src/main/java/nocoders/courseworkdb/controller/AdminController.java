@@ -1,7 +1,13 @@
-package nocoders.courseworkdb.controller;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class AdminController {
-}
+//package nocoders.courseworkdb.controller;
+//
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.GetMapping;
+//
+//@Controller
+//public class AdminController {
+//
+//    @GetMapping("/admin/listQuestions")
+//    public String adminPage(){
+//        return "admin/listQuestions";
+//    }
+//}

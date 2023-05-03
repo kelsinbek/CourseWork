@@ -31,10 +31,7 @@ public class MainController {
 //        return "admin/login";
 //    }
 
-    @GetMapping("/admin/profile")
-    public String adminPage(){
-        return "admin/main";
-    }
+
 
     @GetMapping("/login")
     public String UserPage(Model model) {

@@ -20,7 +20,7 @@ public class AddQuestionController {
     @Autowired
     private QuizService quizService;
 
-    @GetMapping("/listQuestions")
+    @GetMapping("admin/listQuestions")
     public String viewHomePage(Model model) {
         List<Question> listQuestion = quizService.listAll();
         model.addAttribute("listQuestion", listQuestion);
@@ -28,29 +28,29 @@ public class AddQuestionController {
         return "admin/listQuestions";
     }
 
-    @GetMapping("/new")
+    @GetMapping("admin/new")
     public String add(Model model) {
         model.addAttribute("question", new Question());
         return "admin/new";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "admin/new/save", method = RequestMethod.POST)
     public String saveQuestion(@ModelAttribute("question") Question questions) {
         quizService.save(questions);
-        return "redirect:/listQuestions";
+        return "redirect:/admin/listQuestions";
     }
 
-    @RequestMapping("/edit/{quesId}")
+    @RequestMapping("admin/edit/{quesId}")
     public ModelAndView showEditQuestionPage(@PathVariable(name = "quesId") int quesId) {
-        ModelAndView mav = new ModelAndView("new");
+        ModelAndView mav = new ModelAndView("admin/new");
         Question question = quizService.get(quesId);
         mav.addObject("question", question);
         return mav;
 
     }
-    @RequestMapping("/delete/{quesId}")
-    public String deletequestion(@PathVariable(name = "quesId") int quesId) {
+    @RequestMapping("admin/delete/{quesId}")
+    public String deleteQuestion(@PathVariable(name = "quesId") int quesId) {
         quizService.delete(quesId);
-        return "redirect:/listQuestions";
+        return "redirect:/admin/listQuestions";
     }
 }
