@@ -34,13 +34,13 @@ public class AddQuestionController {
         return "admin/new";
     }
 
-    @RequestMapping(value = "admin/new/save", method = RequestMethod.POST)
+    @RequestMapping(value = "admin/save", method = RequestMethod.POST)
     public String saveQuestion(@ModelAttribute("question") Question questions) {
         quizService.save(questions);
         return "redirect:/admin/listQuestions";
     }
 
-    @RequestMapping("admin/edit/{quesId}")
+    @RequestMapping("/edit/{quesId}")
     public ModelAndView showEditQuestionPage(@PathVariable(name = "quesId") int quesId) {
         ModelAndView mav = new ModelAndView("admin/new");
         Question question = quizService.get(quesId);
@@ -48,7 +48,10 @@ public class AddQuestionController {
         return mav;
 
     }
-    @RequestMapping("admin/delete/{quesId}")
+
+
+
+    @RequestMapping("/delete/{quesId}")
     public String deleteQuestion(@PathVariable(name = "quesId") int quesId) {
         quizService.delete(quesId);
         return "redirect:/admin/listQuestions";
