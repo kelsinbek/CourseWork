@@ -12,7 +12,12 @@
     <h1>Create New Question</h1>
     <br/>
     <div class="col-sm-4">
-        <form action="q" th:action="@{/admin/save}" th:object="${question}" method="post">
+        <!--/*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
+<!--        <form action="q" th:action="@{/admin/save/${quiz.id}}" th:object="${question}" method="post">-->
+        <form th:action="@{/admin/save}" method="post" th:object="${question}">
+            <input type="hidden" name="quizId" th:value="${quizId}" />
+
+
 
             <div alight="left">
                 <tr>

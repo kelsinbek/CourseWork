@@ -1,15 +1,14 @@
 package nocoders.courseworkdb.repository;
 
 
-import nocoders.courseworkdb.model.Quiz;
+import nocoders.courseworkdb.model.Question;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface QuizRepository extends CrudRepository<Quiz, Long> {
+public interface QuestionRepository extends CrudRepository<Question, Long> {
 
-    List<Quiz> findByTag(String tag);
-
+    List<Question> findByQuizId(Long quizId);
 }

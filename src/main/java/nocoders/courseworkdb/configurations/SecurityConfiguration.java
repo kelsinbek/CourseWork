@@ -141,13 +141,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/users/profile")
                 .successHandler((request, response, authentication) -> {
                     for (GrantedAuthority auth : authentication.getAuthorities()) {
                         if (auth.getAuthority().equals("ROLE_ADMIN")) {
-                            response.sendRedirect("/admin/listQuestions");
+                            response.sendRedirect("/admin/");
                         } else {
                             response.sendRedirect("/users/profile");
                         }

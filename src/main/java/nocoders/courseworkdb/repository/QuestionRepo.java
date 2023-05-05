@@ -7,7 +7,7 @@ import nocoders.courseworkdb.model.Question;
 import java.util.List;
 
 @Repository
-public interface QuestionRepo extends JpaRepository<Question, Integer> {
+public interface QuestionRepo extends JpaRepository<Question, Long> {
 
 //    List<Question> findBySubjectId(int subject_id);
 

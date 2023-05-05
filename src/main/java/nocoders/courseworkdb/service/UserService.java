@@ -9,5 +9,6 @@ import nocoders.courseworkdb.dto.UserRegistrationDto;
 public interface UserService extends UserDetailsService {
 
     User save(UserRegistrationDto registrationDto);
+
 }
 

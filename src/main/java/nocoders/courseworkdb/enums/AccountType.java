@@ -3,7 +3,7 @@ package nocoders.courseworkdb.enums;
 
 public enum AccountType {
     ADMIN("admin"),
-    STUDENT("student");
+    USER("user");
 
     private final String accountType;
 
