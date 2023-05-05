@@ -16,7 +16,7 @@ public class MainController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String UserPage(Model model) {
         model.addAttribute("title", "Страница абитуриента");
         return "users/login";

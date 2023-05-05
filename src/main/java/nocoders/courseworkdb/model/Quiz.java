@@ -21,7 +21,7 @@ public class Quiz {
     @NotBlank(message = "Name of Quiz can''t be empty!")
     private String name;
     @NotBlank(message = "Description can''t be empty!")
-    @Length(max = 2048, message = "Too long description!")
+    @Length(max = 3000, message = "Too long description!")
     private String text;
     private String tag;
 

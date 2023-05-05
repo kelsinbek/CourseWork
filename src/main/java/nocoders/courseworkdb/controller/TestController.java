@@ -1,11 +1,11 @@
 package nocoders.courseworkdb.controller;
 
-import nocoders.courseworkdb.model.Question;
-import nocoders.courseworkdb.model.QuestionForm;
-import nocoders.courseworkdb.model.Result;
+import nocoders.courseworkdb.model.*;
+import nocoders.courseworkdb.repository.QuizRepository;
 import nocoders.courseworkdb.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,32 @@ import java.util.List;
 @Controller
 public class TestController {
 
+//    @GetMapping("/test")
+//    public String test(Model model) {
+//        model.addAttribute("title", "Станица тестировании");
+//        return "users/StudentTest";
+//    }
+
+
+    @Autowired
+    private QuizRepository quizRepository;
+
     @GetMapping("/test")
-    public String test(Model model) {
-        model.addAttribute("title", "Станица тестировании");
+    public String index(
+            @AuthenticationPrincipal User user,
+            @RequestParam(required = false, defaultValue = "") String filter,
+            Model model
+    ) {
+        Iterable<Quiz> quizzes;
+        if (filter != null && !filter.isEmpty()) {
+            quizzes = quizRepository.findByTag(filter);
+        } else {
+            quizzes = quizRepository.findAll();
+        }
+
+//        model.addAttribute("isAdmin", user.isAdmin());
+        model.addAttribute("quizzes", quizzes);
+
         return "users/StudentTest";
     }
 
@@ -50,7 +73,6 @@ public class TestController {
     }
 
 
-
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username  , Model m, RedirectAttributes ra) {
         try {
@@ -63,7 +85,6 @@ public class TestController {
             result.setUsername(username);
 
             QuestionForm qForm = qService.getQuestions();
-//                QuestionForm qForm = qService.getQuestionsBySubjectId(subjectId);
             m.addAttribute("qForm", qForm);
 
             return "users/quiz";

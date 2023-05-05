@@ -12,6 +12,9 @@
 </head>
 <body>
 
+<!--      /*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
+
+
 <!-- Importing NavBar -->
 <div th:insert="users/navbar.html :: navbar"></div>
 
@@ -28,6 +31,7 @@
       <input type="hidden"  name="username" th:value="${username}"  />
       <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
       <button type="submit" class="btn btn-light">Start Quiz</button>
+
     </form>
   </div>
 </div>
