@@ -82,7 +82,7 @@ public class TestController {
             submitted = false;
             result.setUsername(username);
 
-            QuestionForm qForm = qService.getQuestionsByQuizId(9L);
+            QuestionForm qForm = qService.getQuestions();
             m.addAttribute("qForm", qForm);
 
             return "users/quiz";
