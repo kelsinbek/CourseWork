@@ -26,13 +26,15 @@
   <div class="text-box">
     <h1 class="mb-5 text-center">Math
     </h1>
-    <form class="card bg-dark py-5 px-4" action="/quiz" method="POST">
+    <form class="card bg-dark py-5 px-4" action="/quiz " method="POST">
 <!--      <p>Enter Your Name</p>-->
       <input type="hidden"  name="username" th:value="${username}"  />
       <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
       <button type="submit" class="btn btn-light">Start Quiz</button>
 
     </form>
+
+
   </div>
 </div>
 

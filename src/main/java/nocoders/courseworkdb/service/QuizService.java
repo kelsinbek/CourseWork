@@ -1,6 +1,8 @@
 package nocoders.courseworkdb.service;
 import java.util.Collections;
 import java.util.List;
+
+import nocoders.courseworkdb.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ public class QuizService {
     @Autowired
     ResultRepo rRepo;
 
+    QuestionRepository questionRepository;
+
     /**
      * Get a list of 15 random questions.
      *
@@ -35,6 +39,17 @@ public class QuizService {
         qForm.setQuestions(questionList);
         return qForm;
     }
+
+    public QuestionForm getQuestionsByQuizId(Long quizId) {
+        List<Question> allQuestions = questionRepository.findByQuizId(quizId);
+        Collections.shuffle(allQuestions);
+        List<Question> questionList = allQuestions.subList(0, 5);
+        qForm.setQuestions(questionList);
+        return qForm;
+    }
+
+
+
 
 //    public QuestionForm getQuestions() {
 //        List<Question> allQuestions = qRepo.findAll();

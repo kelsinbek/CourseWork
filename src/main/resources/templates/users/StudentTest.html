@@ -55,18 +55,20 @@
 </header>
 <div class="container mt-5" style="font-family: 'Comfortaa'">
     <p class="text-center py-5" style="font-size: 50px">Тесты</p>
+    <!--      /*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
+
     <a th:replace="fragments/common :: head ('Main')" ></a>
+
+    <div th:each="quiz : ${quizzes}">
+    </div>
+
+
 
     <div th:if="${quizzes}">
         <h3 class="text-center"></h3>
     </div>
     <div th:replace="users/StudentQuizList :: quizList (${quizzes})" class="quiz-list"></div>
 </div>
-
-
-
-
-
 
 
 

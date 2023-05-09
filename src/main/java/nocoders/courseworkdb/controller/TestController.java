@@ -1,6 +1,7 @@
 package nocoders.courseworkdb.controller;
 
 import nocoders.courseworkdb.model.*;
+import nocoders.courseworkdb.repository.QuestionRepository;
 import nocoders.courseworkdb.repository.QuizRepository;
 import nocoders.courseworkdb.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,6 @@ import java.util.List;
 
 @Controller
 public class TestController {
-
-//    @GetMapping("/test")
-//    public String test(Model model) {
-//        model.addAttribute("title", "Станица тестировании");
-//        return "users/StudentTest";
-//    }
 
 
     @Autowired
@@ -46,24 +41,25 @@ public class TestController {
         return "users/StudentTest";
     }
 
+
+
+
     @Autowired
     Result result;
     @Autowired
     QuizService qService;
 
     Boolean submitted = false;
+    @Autowired
+    private QuestionRepository questionRepository;
 
     @ModelAttribute("result")
     public Result getResult() {
         return result;
     }
 
-//    @GetMapping("/test/index")
-//    public String home() {
-//        return "startTest";
-//    }
 
-    @GetMapping("/test/startTest")
+    @GetMapping ("/test/startTest")
     public String startTest(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
@@ -71,6 +67,8 @@ public class TestController {
         model.addAttribute("username", username);
         return "users/startTest";
     }
+
+
 
 
     @PostMapping("/quiz")
@@ -84,7 +82,7 @@ public class TestController {
             submitted = false;
             result.setUsername(username);
 
-            QuestionForm qForm = qService.getQuestions();
+            QuestionForm qForm = qService.getQuestionsByQuizId(9L);
             m.addAttribute("qForm", qForm);
 
             return "users/quiz";
@@ -93,6 +91,10 @@ public class TestController {
             return "redirect:/error";
         }
     }
+
+
+
+
 
 
     @PostMapping("/submit")
@@ -115,6 +117,9 @@ public class TestController {
     }
 
 }
+
+
+
 
 
 
