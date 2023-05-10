@@ -98,7 +98,7 @@ public class TestController {
 
 
     @PostMapping("/submit")
-    public String submit(@ModelAttribute QuestionForm qForm, Model m) {
+    public String submit(@ModelAttribute QuestionForm qForm, Model ) {
         if(!submitted) {
             result.setTotalCorrect(qService.getResult(qForm));
             qService.saveScore(result);
