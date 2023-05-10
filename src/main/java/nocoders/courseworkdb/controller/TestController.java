@@ -65,7 +65,7 @@ public class TestController {
         String username = auth.getName();
         System.out.println(auth.getName());
         model.addAttribute("username", username);
-        return "users/startTest"
+        return "users/startTest";
     }
 
 
