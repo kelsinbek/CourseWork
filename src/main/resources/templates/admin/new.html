@@ -66,21 +66,30 @@
                 </tr>
             </div>
 
-            <div alight="left">
+            <div align="left">
                 <tr>
-                    <label class="form-label">Выбор</label>
+                    <label class="form-label" style="display: none;">Выбор</label>
                     <td>
-                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose"/>
-<!--                        <input type="hidden" th:field="*{chose}" th:value="-1"/>-->
-
-
+                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose" th:value="-1" style="display: none;"/>
                     </td>
                 </tr>
             </div>
+
+
+
+            <!--            <div alight="left">-->
+<!--                <tr>-->
+<!--                    <label class="form-label">Выбор</label>-->
+<!--                    <td>-->
+<!--                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose"/>-->
+
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </div>-->
             <br>
             <tr>
                 <td colspan="2">
-                    <button type="submit" class="btn btn-info">Save</button>
+                    <button type="submit" class="btn btn-dark">Save</button>
                 </td>
             </tr>
             </table>

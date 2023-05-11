@@ -17,12 +17,12 @@ public class AdminController {
     @Autowired
     private QuizRepository quizRepository;
 
-    @GetMapping("/admin/")
-    public String greeting(Model model) {
-        return "admin/greeting";
-    }
+//    @GetMapping("/admin/")
+//    public String greeting(Model model) {
+//        return "admin/greeting";
+//    }
 
-    @GetMapping("admin/index")
+    @GetMapping("admin/main")
     public String index(
             @AuthenticationPrincipal User user,
             @RequestParam(required = false, defaultValue = "") String filter,
@@ -39,7 +39,7 @@ public class AdminController {
 //        model.addAttribute("isAdmin", user.isAdmin());
         model.addAttribute("quizzes", quizzes);
 
-        return "admin/index";
+        return "admin/main";
     }
 
     @PostMapping("index/delete")

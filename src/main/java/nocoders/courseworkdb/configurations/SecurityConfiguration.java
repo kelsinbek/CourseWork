@@ -147,7 +147,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .successHandler((request, response, authentication) -> {
                     for (GrantedAuthority auth : authentication.getAuthorities()) {
                         if (auth.getAuthority().equals("ROLE_ADMIN")) {
-                            response.sendRedirect("/admin/");
+                            response.sendRedirect("/admin/main");
                         } else {
                             response.sendRedirect("/users/profile");
                         }

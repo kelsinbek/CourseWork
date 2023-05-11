@@ -10,4 +10,9 @@ public class ResourceController {
     public String resource(){
         return "users/resource";
     }
+
+    @GetMapping("/admin/resource")
+    public String AdminResource(){
+        return "admin/resource";
+    }
 }
