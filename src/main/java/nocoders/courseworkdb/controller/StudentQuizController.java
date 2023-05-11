@@ -22,6 +22,15 @@ public class StudentQuizController {
     @Autowired
     private QuizRepository quizRepository;
 
+    @Autowired
+    Result result;
+    @Autowired
+    QuizService qService;
+
+    Boolean submitted = false;
+    @Autowired
+    private QuestionRepository questionRepository;
+
     @GetMapping("/test")
     public String index(
             @AuthenticationPrincipal User user,
@@ -41,18 +50,6 @@ public class StudentQuizController {
         return "users/StudentTest";
     }
 
-
-
-
-    @Autowired
-    Result result;
-    @Autowired
-    QuizService qService;
-
-    Boolean submitted = false;
-    @Autowired
-    private QuestionRepository questionRepository;
-
     @ModelAttribute("result")
     public Result getResult() {
         return result;
@@ -69,28 +66,46 @@ public class StudentQuizController {
     }
 
 
-
-
-    @PostMapping("/quiz")
-    public String quiz(@RequestParam String username  , Model m, RedirectAttributes ra) {
-        try {
-            if(username.equals("")) {
-                ra.addFlashAttribute("warning", "You must enter your name");
-                return "redirect:users/startTest";
-            }
-
-            submitted = false;
-            result.setUsername(username);
-
-            QuestionForm qForm = qService.getQuestions();
-            m.addAttribute("qForm", qForm);
-
-            return "users/quiz";
-        } catch(Exception e) {
-            ra.addFlashAttribute("error", "An error occurred: " + e.getMessage());
-            return "redirect:/error";
+        @PostMapping("/quiz")
+    public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
+        if(username.equals("")) {
+            ra.addFlashAttribute("warning", "You must enter your name");
+            return "redirect:/";
         }
+
+        submitted = false;
+        result.setUsername(username);
+
+        QuestionForm qForm = qService.getQuestions();
+        m.addAttribute("qForm", qForm);
+
+
+        return "users/quiz";
     }
+
+
+
+
+//    @PostMapping("/quiz")
+//    public String quiz(@RequestParam String username  , Model m, RedirectAttributes ra) {
+//        try {
+//            if(username.equals("")) {
+//                ra.addFlashAttribute("warning", "You must enter your name");
+//                return "redirect:users/startTest";
+//            }
+//
+//            submitted = false;
+//            result.setUsername(username);
+//
+//            QuestionForm qForm = qService.getQuestions();
+//            m.addAttribute("qForm", qForm);
+//
+//            return "users/quiz";
+//        } catch(Exception e) {
+//            ra.addFlashAttribute("error", "An error occurred: " + e.getMessage());
+//            return "redirect:/error";
+//        }
+//    }
 
 
 

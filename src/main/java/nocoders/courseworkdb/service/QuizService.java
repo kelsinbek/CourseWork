@@ -35,7 +35,7 @@ public class QuizService {
     public QuestionForm getQuestions() {
         List<Question> allQuestions = qRepo.findAll();
         Collections.shuffle(allQuestions);
-        List<Question> questionList = allQuestions.subList(0, 15);
+        List<Question> questionList = allQuestions.subList(0, 2);
         qForm.setQuestions(questionList);
         return qForm;
     }
