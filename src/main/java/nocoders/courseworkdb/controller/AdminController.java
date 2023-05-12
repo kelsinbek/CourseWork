@@ -42,7 +42,7 @@ public class AdminController {
         return "admin/main";
     }
 
-    @PostMapping("index/delete")
+    @PostMapping("main/delete")
     public String delete(@RequestParam Long id, Model model) {
         quizRepository.deleteById(id);
         Iterable<Quiz> quizzes = quizRepository.findAll();
@@ -50,6 +50,6 @@ public class AdminController {
         model.addAttribute("quiz", new Quiz());
         model.addAttribute("quizzes", quizzes);
 
-        return "redirect:/admin/index";
+        return "redirect:/admin/main";
     }
 }

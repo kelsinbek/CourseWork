@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center">
-    <h1>Create New Question</h1>
+    <h1>Создайте новый вопрос</h1>
     <br/>
     <div class="col-sm-4">
         <!--/*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
@@ -17,14 +17,12 @@
         <form th:action="@{/admin/save}" method="post" th:object="${question}">
             <input type="hidden" name="quizId" th:value="${quizId}" />
 
-
-
             <div alight="left">
                 <tr>
                     <label class="form-label">Вопрос</label>
                     <td>
                         <input type="hidden" th:field="*{quesId}"/>
-                        <input type="text" th:field="*{title}" class="form-control" placeholder="Question"/>
+                        <input type="text" th:field="*{title}" class="form-control" placeholder="Вопрос"/>
                     </td>
                 </tr>
             </div>
@@ -34,7 +32,7 @@
                 <tr>
                     <label class="form-label">Вариант А</label>
                     <td>
-                        <input type="text" th:field="*{optionA}" class="form-control" placeholder="Option A"/>
+                        <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>
                     </td>
                 </tr>
             </div>
@@ -43,7 +41,7 @@
                 <tr>
                     <label class="form-label">Вариант Б</label>
                     <td>
-                        <input type="text" th:field="*{optionB}" class="form-control" placeholder="Option B"/>
+                        <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант В"/>
                     </td>
                 </tr>
             </div>
@@ -52,7 +50,7 @@
                 <tr>
                     <label class="form-label">Вариант В</label>
                     <td>
-                        <input type="text" th:field="*{optionC}" class="form-control" placeholder="Option C"/>
+                        <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант C"/>
                     </td>
                 </tr>
             </div>
@@ -61,16 +59,16 @@
                 <tr>
                     <label class="form-label">Ответ</label>
                     <td>
-                        <input type="text" th:field="*{ans}" class="form-control" placeholder="Answer"/>
+                        <input type="text" th:field="*{ans}" class="form-control" placeholder="Ответ"/>
                     </td>
                 </tr>
             </div>
 
-            <div align="left">
+            <div aligt="left">
                 <tr>
                     <label class="form-label" style="display: none;">Выбор</label>
                     <td>
-                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose" th:value="-1" style="display: none;"/>
+                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Выбор" th:value="-1" style="display: none;"/>
                     </td>
                 </tr>
             </div>
@@ -89,7 +87,7 @@
             <br>
             <tr>
                 <td colspan="2">
-                    <button type="submit" class="btn btn-dark">Save</button>
+                    <button type="submit" class="btn btn-dark">Сохранить</button>
                 </td>
             </tr>
             </table>

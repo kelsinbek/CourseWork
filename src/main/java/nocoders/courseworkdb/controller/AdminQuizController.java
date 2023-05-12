@@ -131,7 +131,7 @@ public class AdminQuizController {
 
         model.addAttribute("quizzes", quizzes);
 
-        return "redirect:/admin/index";
+        return "redirect:/admin/main";
     }
 
 }

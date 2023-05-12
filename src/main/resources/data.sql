@@ -309,6 +309,9 @@ VALUES (
            -1
        );
 
+ALTER TABLE questions ALTER COLUMN chose SET DEFAULT -1;
+
+
 
 -- CREATE TABLE subject (
 --                          subject_id SERIAL PRIMARY KEY,

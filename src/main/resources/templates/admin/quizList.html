@@ -6,7 +6,7 @@
 
       <div class="card-header pl-3 py-1">
         <h6 class=" badge badge-dark">#<span th:text="${quiz.tag}"></span></h6>
-        <form th:action="@{/index/delete}" method="post" class="float-right">
+        <form th:action="@{/main/delete}" method="post" class="float-right">
           <input type="hidden" th:name="id" th:value="${quiz.id}"/>
           <button type="submit" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
