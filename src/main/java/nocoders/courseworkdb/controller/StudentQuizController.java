@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -35,20 +34,27 @@ public class StudentQuizController {
     public String index(
             @AuthenticationPrincipal User user,
             @RequestParam(required = false, defaultValue = "") String filter,
-            Model model
+            Model model,
+            Authentication authentication
     ) {
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+            System.out.println(username);
+            model.addAttribute("username", username);
+        }
+
         Iterable<Quiz> quizzes;
         if (filter != null && !filter.isEmpty()) {
             quizzes = quizRepository.findByTag(filter);
         } else {
             quizzes = quizRepository.findAll();
         }
-
-//        model.addAttribute("isAdmin", user.isAdmin());
         model.addAttribute("quizzes", quizzes);
 
         return "users/StudentTest";
     }
+
+
 
     @ModelAttribute("result")
     public Result getResult() {
@@ -65,53 +71,7 @@ public class StudentQuizController {
         return "users/startTest";
     }
 
-
-        @PostMapping("/quiz")
-    public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
-        if(username.equals("")) {
-            ra.addFlashAttribute("warning", "You must enter your name");
-            return "redirect:/";
-        }
-
-        submitted = false;
-        result.setUsername(username);
-
-        QuestionForm qForm = qService.getQuestions();
-        m.addAttribute("qForm", qForm);
-
-
-        return "users/quiz";
-    }
-
-
-
-
-//    @PostMapping("/quiz")
-//    public String quiz(@RequestParam String username  , Model m, RedirectAttributes ra) {
-//        try {
-//            if(username.equals("")) {
-//                ra.addFlashAttribute("warning", "You must enter your name");
-//                return "redirect:users/startTest";
-//            }
-//
-//            submitted = false;
-//            result.setUsername(username);
-//
-//            QuestionForm qForm = qService.getQuestions();
-//            m.addAttribute("qForm", qForm);
-//
-//            return "users/quiz";
-//        } catch(Exception e) {
-//            ra.addFlashAttribute("error", "An error occurred: " + e.getMessage());
-//            return "redirect:/error";
-//        }
-//    }
-
-
-
-
-
-    @PostMapping("/submit")
+    @PostMapping("/submitQuiz")
     public String submit(@ModelAttribute QuestionForm qForm, Model m) {
         if(!submitted) {
             result.setTotalCorrect(qService.getResult(qForm));
@@ -131,6 +91,12 @@ public class StudentQuizController {
     }
 
 }
+
+
+
+
+
+
 
 
 

@@ -1,8 +1,6 @@
 package nocoders.courseworkdb.service;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import nocoders.courseworkdb.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,24 +26,10 @@ public class QuizService {
 
     QuestionRepository questionRepository;
 
-    /**
-     * Get a list of 15 random questions.
-     *
-     * @return a QuestionForm with 15 random questions
-     */
-
     public QuestionForm getQuestions() {
         List<Question> allQuestions = qRepo.findAll();
         Collections.shuffle(allQuestions);
         List<Question> questionList = allQuestions.subList(0, 2);
-        qForm.setQuestions(questionList);
-        return qForm;
-    }
-
-    public QuestionForm getQuestionsByQuizId(Long quizId) {
-        List<Question> allQuestions = questionRepository.findByQuizId(quizId);
-        Collections.shuffle(allQuestions);
-        List<Question> questionList = allQuestions.subList(0, 5);
         qForm.setQuestions(questionList);
         return qForm;
     }
@@ -68,12 +52,7 @@ public class QuizService {
 //        return qForm;
 //    }
 
-    /**
-     * Get the number of correct answers from a QuestionForm.
-     *
-     * @param qForm QuestionForm to evaluate
-     * @return number of correct answers
-     */
+
     public int getResult(QuestionForm qForm) {
         int correct = 0;
 
@@ -86,11 +65,6 @@ public class QuizService {
         return correct;
     }
 
-    /**
-     * Save a user's quiz result.
-     *
-     * @param result user's quiz result
-     */
     public void saveScore(Result result) {
         Result saveResult = new Result();
         saveResult.setUsername(result.getUsername());
@@ -98,49 +72,23 @@ public class QuizService {
         rRepo.save(saveResult);
     }
 
-    /**
-     * Get the top quiz scores in descending order.
-     *
-     * @return a List of Result objects sorted by totalCorrect
-     */
     public List<Result> getTopScore() {
         List<Result> scoreList = rRepo.findAll(Sort.by(Sort.Direction.DESC, "totalCorrect"));
         return scoreList;
     }
 
-    /**
-     * Get a list of all questions in the database.
-     *
-     * @return a List of all Question objects
-     */
     public List<Question> listAll() {
         return qRepo.findAll();
     }
 
-    /**
-     * Save a Question object to the database.
-     *
-     * @param question Question object to save
-     */
     public void save(Question question) {
         qRepo.save(question);
     }
 
-    /**
-     * Get a specific Question object by ID.
-     *
-     * @param quesId ID of the Question object to retrieve
-     * @return the Question object with the specified ID
-     */
     public Question get(Long quesId) {
         return qRepo.findById(quesId).get();
     }
 
-    /**
-     * Delete a Question object by ID.
-     *
-     * @param quesId ID of the Question object to delete
-     */
     public void delete(Long quesId) {
         qRepo.deleteById(quesId);
     }

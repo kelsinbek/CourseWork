@@ -17,12 +17,12 @@
 
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
-  <h3 class="bg-dark text-center text-light mb-5 p-2">Top Scores Of All Time</h3>
+  <h3 class="bg-dark text-center text-light mb-5 p-2">Табло успеваемости</h3>
 
   <table class="bg-dark text-light">
     <tr>
-      <th>Name</th>
-      <th>Score</th>
+      <th>Имя</th>
+      <th>Балл</th>
     </tr>
     <tr th:each="score : ${sList}">
       <td th:text="${score.username}"></td>

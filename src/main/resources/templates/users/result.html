@@ -22,29 +22,29 @@
   <div class="card bg-dark text-light py-5 px-4 mx-auto">
     <img th:src="@{/images/exam.svg}" alt="image">
 
-    <h3 class="bg-light text-center text-dark mb-5 p-2">Your Score</h3>
+    <h3 class="bg-light text-center text-dark mb-5 p-2">Ваш результат</h3>
 
     <div class="d-flex justify-content-center">
-      <p>Participant name:&nbsp;&nbsp;</p>
+      <p>Имя:&nbsp;&nbsp;</p>
       <p th:if="${result}" th:text="${result.username}"></p>
     </div>
 
     <div class="d-flex justify-content-center">
-      <p>Total correct answer:&nbsp;&nbsp;</p>
+      <p>Общий правильный ответ:&nbsp;&nbsp;</p>
       <p th:if="${result}" th:text="${result.totalCorrect}"></p>
     </div>
 
     <div class="d-flex justify-content-center">
-      <p>Total false answer:&nbsp;&nbsp;</p>
+      <p>Неправильные ответы:&nbsp;&nbsp;</p>
       <p th:if="${result}" th:text="15 - ${result.totalCorrect}"></p>
     </div>
 
     <div class="d-flex justify-content-center mt-4">
       <button type="button" th:onclick="window.location.href='/score'"
-              class="btn btn-outline-light mx-auto">View Score Board</button>
+              class="btn btn-outline-light mx-auto">Просмотр табло успеваемости</button>
 <!--      <button type="button" th:onclick="window.location.href='http://localhost:8080/users/profile'"-->
       <button type="button" onclick="window.location.href='http://localhost:8080/users/profile'"
-      class="btn btn-outline-light mx-auto">Back to Homepage</button>
+      class="btn btn-outline-light mx-auto">Вернуться</button>
     </div>
   </div>
 </div>
