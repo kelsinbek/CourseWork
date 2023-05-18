@@ -39,6 +39,7 @@ public class QuestionController {
         List<Question> questions = questionService.getQuestionsByQuizId(quizId);
         QuestionForm questionForm = new QuestionForm();
         questionForm.setQuestions(questions);
+        System.out.println(quizId);
 
 
         model.addAttribute("qForm", questionForm);
