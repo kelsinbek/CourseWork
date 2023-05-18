@@ -24,7 +24,7 @@ public class Question {
 
     private int ans;
 
-    private int chose;
+    private int chose = -1;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "quiz_id")

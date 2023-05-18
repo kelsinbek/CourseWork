@@ -1,6 +1,69 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="utf-8"/>-->
+<!--    <title>Create New Product</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div align="center">-->
+<!--    <h1>Создайте новый вопрос</h1>-->
+<!--    <br/>-->
+<!--    <div class="col-sm-4">-->
+<!--        <form th:action="@{/admin/save}" method="post" th:object="${question}">-->
+<!--            <input type="hidden" name="quizId" th:value="${quizId}" />-->
+
+<!--            <div align="left">-->
+<!--                <label class="form-label">Вопрос</label>-->
+<!--                <input type="hidden" th:field="*{quesId}"/>-->
+<!--                <input type="text" th:field="*{title}" class="form-control" placeholder="Вопрос"/>-->
+<!--            </div>-->
+
+<!--            <br>-->
+
+<!--            <div align="left">-->
+<!--                <label class="form-label">Вариант А</label>-->
+<!--                <input type="radio" th:field="*{ans}" th:value="1"/>-->
+<!--                <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>-->
+<!--            </div>-->
+
+<!--            <br>-->
+
+<!--            <div align="left">-->
+<!--                <label class="form-label">Вариант Б</label>-->
+<!--                <input type="radio" th:field="*{ans}" th:value="2"/>-->
+<!--                <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант Б"/>-->
+<!--            </div>-->
+
+<!--            <br>-->
+
+<!--            <div align="left">-->
+<!--                <label class="form-label">Вариант В</label>-->
+<!--                <input type="radio" th:field="*{ans}" th:value="3"/>-->
+<!--                <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант В"/>-->
+<!--            </div>-->
+
+<!--            <br>-->
+
+<!--            <div align="left">-->
+<!--                <label class="form-label"></label>-->
+<!--&lt;!&ndash;                Ответ&ndash;&gt;-->
+<!--                <input type="hidden" th:field="*{chose}" class="form-control" placeholder="Chose"/>-->
+<!--            </div>-->
+
+<!--            <br>-->
+<!--            <button type="submit" class="btn btn-dark">Сохранить</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <title>Create New Product</title>
@@ -12,79 +75,51 @@
     <h1>Создайте новый вопрос</h1>
     <br/>
     <div class="col-sm-4">
-        <!--/*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
-<!--        <form action="q" th:action="@{/admin/save/${quiz.id}}" th:object="${question}" method="post">-->
         <form th:action="@{/admin/save}" method="post" th:object="${question}">
             <input type="hidden" name="quizId" th:value="${quizId}" />
 
-            <div alight="left">
-                <tr>
-                    <label class="form-label">Вопрос</label>
-                    <td>
-                        <input type="hidden" th:field="*{quesId}"/>
-                        <input type="text" th:field="*{title}" class="form-control" placeholder="Вопрос"/>
-                    </td>
-                </tr>
+            <div align="left">
+                <label class="form-label">Вопрос</label>
+                <input type="hidden" th:field="*{quesId}"/>
+                <input type="text" th:field="*{title}" class="form-control" placeholder="Вопрос"/>
             </div>
 
-            <div alight="left">
-
-                <tr>
-                    <label class="form-label">Вариант А</label>
-                    <td>
-                        <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>
-                    </td>
-                </tr>
-            </div>
-
-            <div alight="left">
-                <tr>
-                    <label class="form-label">Вариант Б</label>
-                    <td>
-                        <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант В"/>
-                    </td>
-                </tr>
-            </div>
-
-            <div alight="left">
-                <tr>
-                    <label class="form-label">Вариант В</label>
-                    <td>
-                        <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант C"/>
-                    </td>
-                </tr>
-            </div>
-
-            <div alight="left">
-                <tr>
-                    <label class="form-label">Ответ</label>
-                    <td>
-                        <input type="text" th:field="*{ans}" class="form-control" placeholder="Ответ"/>
-                    </td>
-                </tr>
-            </div>
-
-
-
-
-                        <div alight="left">
-                <tr>
-                    <label class="form-label">Выбор</label>
-                    <td>
-                        <input type="text" th:field="*{chose}" class="form-control" placeholder="Chose"/>
-
-                    </td>
-                </tr>
-            </div>
             <br>
-            <tr>
-                <td colspan="2">
-                    <button type="submit" class="btn btn-dark">Сохранить</button>
-                </td>
-            </tr>
-            </table>
+
+            <div align="left">
+                <label class="form-label">Вариант А</label>
+                <input type="radio" th:field="*{ans}" th:value="1"/>
+                <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>
+            </div>
+
+            <br>
+
+            <div align="left">
+                <label class="form-label">Вариант Б</label>
+                <input type="radio" th:field="*{ans}" th:value="2"/>
+                <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант Б"/>
+            </div>
+
+            <br>
+
+            <div align="left">
+                <label class="form-label">Вариант В</label>
+                <input type="radio" th:field="*{ans}" th:value="3"/>
+                <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант В"/>
+            </div>
+
+            <br>
+
+            <div align="left">
+                <label class="form-label"></label>
+                <input type="hidden" th:field="*{chose}" class="form-control" placeholder="Chose"/>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-dark">Сохранить</button>
         </form>
     </div>
 </div>
 </body>
 </html>
+

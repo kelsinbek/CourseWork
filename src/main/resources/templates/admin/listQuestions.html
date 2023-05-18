@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -14,62 +15,211 @@
         <a class="btn btn-dark" href="http://localhost:8080/admin/main" role="button" style="margin-top: 10px; margin-left: 5px;">Назад</a>
     </div>
     <div class="col-8 text-center">
-        <h2>Список всех  вопросов</h2>
+        <h2>Список всех вопросов</h2>
+        <h3>
+            <a href="#" data-toggle="modal" data-target="#addQuestionModal">
+                Добавить вопрос +
+            </a>
+        </h3>
     </div>
 </div>
 
 
 
+<div class="col-xl-12" align="center">
+    <div class="panel-body" align="center">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>№</th>
+                <th>Вопросы</th>
+                <th>Вариант А</th>
+                <th>Вариант Б</th>
+                <th>Вариант В</th>
+                <th>Прав.ответ</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="question : ${listQuestion}">
+                <td th:text="${question.quesId}">id</td>
+                <td th:text="${question.title}">Вопрос</td>
+                <td th:text="${question.optionA}">Вариант А</td>
+                <td th:text="${question.optionB}">Вариант Б</td>
+                <td th:text="${question.optionC}">Вариант В</td>
+                <td th:text="${question.ans}">Ответ</td>
+                <td>
+                    <a th:href="@{/admin/listQuestions/edit/{quesId}(quesId=${question.quesId})}">Edit</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/listQuestions/delete/{quesId}(quesId=${question.quesId})}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-    <tr>
-        <div align="center">
-<!--            <h3><a th:href="@{'new/'}">Add new +</a></h3>-->
-            <h3><a th:href="@{'/admin/listQuestions/' + ${quiz.id} + '/new'}">Добавить вопрос + </a></h3>
-        </div>
-    </tr>
-    <tr>
-        <div class="col-xl-12" align="center">
-            <div class="panel-body" align="center">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>№</th>
-                        <th>Вопросы</th>
-                        <th>Вариант А</th>
-                        <th>Вариант Б</th>
-                        <th>Вариант В</th>
-                        <th>Прав.ответ</th>
-                        <th>Кол.выбрать</th>
-                        <th>Изменить</th>
-                        <th>Удалить</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="question : ${listQuestion}">
-                        <td th:text="${question.quesId}">id</td>
-                        <td th:text="${question.title}">Вопрос</td>
-                        <td th:text="${question.optionA}">Вариант А</td>
-                        <td th:text="${question.optionB}">Вариант Б</td>
-                        <td th:text="${question.optionC}">Вариант В</td>
-                        <td th:text="${question.ans}">Ответ</td>
-                        <td th:text="${question.chose}">Выбор</td>
-                        <td>
-                            <a th:href="@{'/admin/listQuestions/edit/' + ${question.quesId}}">Edit</a>
-                        </td>
-                        <td>
-                            <a th:href="@{'/admin/listQuestions/delete/' + ${question.quesId}}">Delete</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+<!-- Модальное окно -->
+<div class="modal fade" id="addQuestionModal" tabindex="-1" role="dialog" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addQuestionModalLabel">Создайте новый вопрос</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-    </tr>
+            <div class="modal-body">
+                <form th:action="@{/admin/save}" method="post" th:object="${question}">
+                    <input type="hidden" name="quizId" th:value="${quizId}" />
 
-    </tbody>
-    </table>
-    <div>
+                    <div align="left">
+                        <label class="form-label">Вопрос</label>
+                        <input type="hidden" th:field="*{quesId}"/>
+                        <input type="text" th:field="*{title}" class="form-control" placeholder="Вопрос"/>
+                    </div>
+
+                    <br>
+
+                    <div align="left">
+                        <label class="form-label">Вариант А</label>
+                        <input type="radio" th:field="*{ans}" th:value="1"/>
+                        <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>
+                    </div>
+
+                    <br>
+
+                    <div align="left">
+                        <label class="form-label">Вариант Б</label>
+                        <input type="radio" th:field="*{ans}" th:value="2"/>
+                        <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант Б"/>
+                    </div>
+
+                    <br>
+
+                    <div align="left">
+                        <label class="form-label">Вариант В</label>
+                        <input type="radio" th:field="*{ans}" th:value="3"/>
+                        <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант В"/>
+                    </div>
+
+                    <br>
+
+                    <div align="left">
+                        <label class="form-label"></label>
+                        <input type="hidden" th:field="*{chose}" class="form-control" placeholder="Chose"/>
+                    </div>
+
+                    <br>
+                    <button type="submit" class="btn btn-dark">Сохранить</button>
+                </form>
+            </div>
+            <script>
+                $('#addQuestionModal').on('hidden.bs.modal', function () {
+                    // Очищаем содержимое модального окна при его закрытии
+                    $(this).find('form').trigger('reset');
+                });
+            </script>
+        </div>
     </div>
 </div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="row">-->
+<!--    <div class="col-2">-->
+<!--        <a class="btn btn-dark" href="http://localhost:8080/admin/main" role="button" style="margin-top: 10px; margin-left: 5px;">Назад</a>-->
+<!--    </div>-->
+<!--    <div class="col-8 text-center">-->
+<!--        <h2>Список всех  вопросов</h2>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<!--    <tr>-->
+<!--        <div align="center">-->
+<!--&lt;!&ndash;            <h3><a th:href="@{'new/'}">Add new +</a></h3>&ndash;&gt;-->
+<!--            <h3><a th:href="@{'/admin/listQuestions/' + ${quiz.id} + '/new'}">Добавить вопрос + </a></h3>-->
+
+
+<!--        </div>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <div class="col-xl-12" align="center">-->
+<!--            <div class="panel-body" align="center">-->
+<!--                <table class="table">-->
+<!--                    <thead class="thead-dark">-->
+<!--                    <tr>-->
+<!--                        <th>№</th>-->
+<!--                        <th>Вопросы</th>-->
+<!--                        <th>Вариант А</th>-->
+<!--                        <th>Вариант Б</th>-->
+<!--                        <th>Вариант В</th>-->
+<!--                        <th>Прав.ответ</th>-->
+<!--&lt;!&ndash;                        <th>Кол.выбрать</th>&ndash;&gt;-->
+<!--                        <th>Изменить</th>-->
+<!--                        <th>Удалить</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <tr th:each="question : ${listQuestion}">-->
+<!--                        <td th:text="${question.quesId}">id</td>-->
+<!--                        <td th:text="${question.title}">Вопрос</td>-->
+<!--                        <td th:text="${question.optionA}">Вариант А</td>-->
+<!--                        <td th:text="${question.optionB}">Вариант Б</td>-->
+<!--                        <td th:text="${question.optionC}">Вариант В</td>-->
+<!--                        <td th:text="${question.ans}">Ответ</td>-->
+<!--&lt;!&ndash;                        <td th:text="${question.chose}">Выбор</td>&ndash;&gt;-->
+<!--                        <td>-->
+<!--                            <a th:href="@{'/admin/listQuestions/edit/' + ${question.quesId}}">Edit</a>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <a th:href="@{'/admin/listQuestions/delete/' + ${question.quesId}}">Delete</a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </tr>-->
+
+<!--    </tbody>-->
+<!--    </table>-->
+<!--    <div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+

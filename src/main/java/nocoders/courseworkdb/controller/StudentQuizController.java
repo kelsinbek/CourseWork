@@ -62,25 +62,25 @@ public class StudentQuizController {
     }
 
 
-    @GetMapping ("/test/startTest")
-    public String startTest(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        System.out.println(auth.getName());
-        model.addAttribute("username", username);
-        return "users/startTest";
-    }
+//    @GetMapping ("/test/startTest")
+//    public String startTest(Model model) {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String username = auth.getName();
+//        System.out.println(auth.getName());
+//        model.addAttribute("username", username);
+//        return "users/startTest";
+//    }
 
-    @PostMapping("/submitQuiz")
-    public String submit(@ModelAttribute QuestionForm qForm, Model m) {
-        if(!submitted) {
-            result.setTotalCorrect(qService.getResult(qForm));
-            qService.saveScore(result);
-            submitted = true;
-        }
-
-        return "users/result";
-    }
+//    @PostMapping("/submitQuiz")
+//    public String submit(@ModelAttribute QuestionForm qForm, Model m) {
+//        if(!submitted) {
+//            result.setTotalCorrect(qService.getResult(qForm));
+//            qService.saveScore(result);
+//            submitted = true;
+//        }
+//
+//        return "users/result";
+//    }
 
     @GetMapping("/score")
     public String score(Model m) {
