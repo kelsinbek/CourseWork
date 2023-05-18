@@ -9,6 +9,11 @@
       background-color: #f5f5f5; /* задайте цвет фона вашего футера */
     }
 
+    .fixed-div {
+      height: 500px; /* задайте фиксированную высоту */
+      overflow-y: scroll; /* добавьте прокрутку, если содержимое превышает высоту */
+    }
+
   </style>
   <link th:replace="fragments/common :: head('Main')">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,17 +38,10 @@
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="margin-right: 120px; font-size: 20px;">
         <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: white"
            href="http://localhost:8080/admin/main">Тесты</a>
-<!--        <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: white"-->
-<!--           href="http://localhost:8080/aboutUs">О нас</a>-->
         <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: white"
            href="http://localhost:8080/admin/resource">Ресурсы</a>
       </nav>
-      <!--        <a href="http://localhost:8080/login">-->
-      <!--          <button type="button" class="me-5 w-10 btn btn-lg btn-outline-light">Войти</button>-->
-      <!--        </a>-->
-      <!--        <a href="http://localhost:8080/register">-->
-      <!--          <button type="button" class="w-10 btn btn-lg btn-light">Зарегистрироваться</button>-->
-      <!--        </a>-->
+
 
       <span class="text-light" sec:authentication="principal.username"> User </span>
       <h6>""</h6>
@@ -66,7 +64,7 @@
     <a class="btn btn-dark ml-2 " th:href="@{/quizAdd}" role="button">Добавить новый тест</a>
   </form>
   <div th:if="${quizzes}"><h3 class="text-center">Тесты</h3></div>
-  <div th:replace="admin/quizList :: quizList (${quizzes})"></div>
+  <div  class="fixed-div" th:replace="admin/quizList :: quizList (${quizzes})"></div>
 </div>
 
 

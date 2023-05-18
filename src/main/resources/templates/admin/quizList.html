@@ -1,11 +1,62 @@
+<!--<html lang="ru" xmlns:th="http://www.thymeleaf.org">-->
+<!--<style>-->
+<!--  .fixed-card {-->
+<!--  height: 200px; /* задайте фиксированную высоту */-->
+<!--}</style>-->
+<!--<div th:fragment="quizList (quizzes)">-->
+<!--  <div class="card-columns">-->
+<!--    <div th:each="quiz : ${quizzes}" class="card my-3 fixed-card">-->
+<!--      &lt;!&ndash;/*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/&ndash;&gt;-->
+
+<!--      <div class="card-header pl-3 py-1">-->
+<!--        <h6 class=" badge badge-dark">#<span th:text="${quiz.tag}"></span></h6>-->
+<!--        <form th:action="@{/main/delete}" method="post" class="float-right">-->
+<!--          <input type="hidden" th:name="id" th:value="${quiz.id}"/>-->
+<!--          <button type="submit" class="close" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </form>-->
+<!--        <a class="custom-link float-right" th:href="@{/quizEdit(quiz=__${quiz.id}__)}">-->
+<!--          <i class="fas fa-edit mr-1" data-fa-transform="grow-2 down-2"></i>-->
+<!--        </a>-->
+
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 th:text="${quiz.name}" class="card-title">Quiz name</h5>-->
+<!--        <p class="card-text" th:text="${quiz.text}"></p>-->
+<!--      </div>-->
+<!--      <div class="card-footer">-->
+<!--&lt;!&ndash;        <small class="text-muted" th:text="|Author: |"></small>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a th:href="@{/user-quizzes/__${quiz.author.id}__}" th:text="${quiz.authorName}"></a>&ndash;&gt;-->
+<!--        <a th:href="@{/admin/listQuestions/__${quiz.id}__}" class="btn btn-secondary float-right btn-sm mb-2">Открыть предмет</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</html>-->
+
+<!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="quizList (quizzes)">
-  <div class="card-columns">
-    <div th:each="quiz : ${quizzes}" class="card my-3">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    .card {
+      height: 100px;
+
+      /* задайте фиксированную высоту */
+    }
+  </style>
+</head>
+<body>
+<div th:fragment="quizList(quizzes)">
+  <div class="card-columns " >
+    <div th:each="quiz : ${quizzes}" class="card my-3" >
       <!--/*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
 
       <div class="card-header pl-3 py-1">
-        <h6 class=" badge badge-dark">#<span th:text="${quiz.tag}"></span></h6>
+        <h6 class="badge badge-dark">#<span th:text="${quiz.tag}"></span></h6>
         <form th:action="@{/main/delete}" method="post" class="float-right">
           <input type="hidden" th:name="id" th:value="${quiz.id}"/>
           <button type="submit" class="close" aria-label="Close">
@@ -15,18 +66,19 @@
         <a class="custom-link float-right" th:href="@{/quizEdit(quiz=__${quiz.id}__)}">
           <i class="fas fa-edit mr-1" data-fa-transform="grow-2 down-2"></i>
         </a>
-
       </div>
+
       <div class="card-body">
-        <h5 th:text="${quiz.name}" class="card-title">Quiz name</h5>
+        <h5 class="card-title" th:text="${quiz.name}">Quiz name</h5>
         <p class="card-text" th:text="${quiz.text}"></p>
       </div>
+
       <div class="card-footer">
-<!--        <small class="text-muted" th:text="|Author: |"></small>-->
-<!--        <a th:href="@{/user-quizzes/__${quiz.author.id}__}" th:text="${quiz.authorName}"></a>-->
         <a th:href="@{/admin/listQuestions/__${quiz.id}__}" class="btn btn-secondary float-right btn-sm mb-2">Открыть предмет</a>
       </div>
     </div>
   </div>
 </div>
+</body>
 </html>
+

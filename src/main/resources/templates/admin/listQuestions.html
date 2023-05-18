@@ -7,6 +7,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .input-margin {
+            margin-left: 10px;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -83,26 +90,26 @@
 
                     <br>
 
-                    <div align="left">
-                        <label class="form-label">Вариант А</label>
+                    <div class="form-inline" align="left">
+<!--                        <label class="form-label">Вариант А</label>-->
                         <input type="radio" th:field="*{ans}" th:value="1"/>
-                        <input type="text" th:field="*{optionA}" class="form-control" placeholder="Вариант А"/>
+                        <input type="text" th:field="*{optionA}" class="form-control input-margin" style="width: 95%;" placeholder="Вариант А"/>
                     </div>
 
                     <br>
 
-                    <div align="left">
-                        <label class="form-label">Вариант Б</label>
+                    <div align="left" class="form-inline">
+<!--                        <label class="form-label">Вариант Б</label>-->
                         <input type="radio" th:field="*{ans}" th:value="2"/>
-                        <input type="text" th:field="*{optionB}" class="form-control" placeholder="Вариант Б"/>
+                        <input type="text" th:field="*{optionB}" class="form-control input-margin" style="width: 95%;" placeholder="Вариант Б"/>
                     </div>
 
                     <br>
 
-                    <div align="left">
-                        <label class="form-label">Вариант В</label>
+                    <div align="left" class="form-inline">
+<!--                        <label class="form-label">Вариант В</label>-->
                         <input type="radio" th:field="*{ans}" th:value="3"/>
-                        <input type="text" th:field="*{optionC}" class="form-control" placeholder="Вариант В"/>
+                        <input type="text" th:field="*{optionC}" class="form-control input-margin" style="width: 95%;" placeholder="Вариант В"/>
                     </div>
 
                     <br>
