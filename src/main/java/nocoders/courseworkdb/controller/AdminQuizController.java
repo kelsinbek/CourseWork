@@ -119,7 +119,7 @@ public class AdminQuizController {
             BindingResult bindingResult,
             Model model
     ) {
-        quiz.setAuthor(users);
+//        quiz.setAuthor(users);
 
         if (bindingResult.hasErrors()) {
             return "admin/quizEdit";

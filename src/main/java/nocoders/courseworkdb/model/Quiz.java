@@ -25,9 +25,9 @@ public class Quiz {
     private String text;
     private String tag;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "users_id")
-    private User author;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "users_id")
+//    private User author;
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Question> questions = new HashSet<>();
@@ -39,12 +39,12 @@ public class Quiz {
         this.name = name;
         this.text = text;
         this.tag = tag;
-        this.author = author;
+//        this.author = author;
     }
 
-    public String getAuthorName() {
-        return author != null ? author.getEmail() : "No author";
-    }
+//    public String getAuthorName() {
+//        return author != null ? author.getEmail() : "No author";
+//    }
 }
 
 

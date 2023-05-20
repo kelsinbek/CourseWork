@@ -7,7 +7,7 @@
 
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
 
@@ -150,7 +150,7 @@ form {
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
     color: #555;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .input-div.pass {
@@ -174,14 +174,14 @@ a:hover {
     display: block;
     width: 100%;
     height: 50px;
-    border-radius: 75px;
-    background-image: linear-gradient(to right, #FFBD12, #FFBD12);
+    border-radius: 300px;
+    background-image: linear-gradient(to right, #0A092D, #0A092D);
     outline: none;
     border: 50px;
     background-size: 200%;
     font-size: 1.2rem;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     margin: 1rem 0;
     cursor: pointer;
@@ -234,7 +234,7 @@ a:hover {
 
 .account-type-style {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     width:360px;
     border-radius: 5px;
     background-color: #9E99CC;

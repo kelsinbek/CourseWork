@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface QuestionRepo extends JpaRepository<Question, Long> {
 
-//    List<Question> findBySubjectId(int subject_id);
 
 }
