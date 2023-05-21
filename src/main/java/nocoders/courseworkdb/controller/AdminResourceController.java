@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
-public class BlogController {
+public class AdminResourceController {
 
     @Autowired
     private PostRepository postRepository;

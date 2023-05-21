@@ -21,16 +21,14 @@
 <!--Шапка сайта-->
 <header class="headder" th:insert="users/blocks/header :: header"></header>
 <!--Рекомендуемые видео из ютуба-->
-<div class="container mt-5" style="font-family: 'Roboto'">
-    <p class="text-center py-5" style="font-size: 30px">Рекомендуемые видеоуроки для подготовки к ОРТ</p>
-</div>
-<div class="container text-center py-5">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/GWJ02HCf2mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="margin-right: 20px" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6WKP9cUPhUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="margin-left: 20px" allowfullscreen></iframe>
-</div>
-<div class="container text-center py-5">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/2VBY-vGyD-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="margin-right: 20px" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Nqg2VzQKNO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="margin-left: 20px" allowfullscreen></iframe>
+<div class="container mt-5">
+    <br><br><br>
+    <h1>Ресурсы</h1><br>
+    <div th:each="el : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}"/>
+        <p th:text="${el.anons}"/>
+        <a th:href="'/resource/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+    </div>
 </div>
 
 <!--Нижняя шапка footer-->
