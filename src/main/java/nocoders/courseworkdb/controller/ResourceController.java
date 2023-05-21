@@ -11,8 +11,8 @@ public class ResourceController {
         return "users/resource";
     }
 
-    @GetMapping("/admin/resource")
-    public String AdminResource(){
-        return "admin/resource";
-    }
+//    @GetMapping("/admin/resource")
+//    public String AdminResource(){
+//        return "admin/resource";
+//    }
 }
