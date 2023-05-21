@@ -17,11 +17,6 @@ public class AdminController {
     @Autowired
     private QuizRepository quizRepository;
 
-//    @GetMapping("/admin/")
-//    public String greeting(Model model) {
-//        return "admin/greeting";
-//    }
-
     @GetMapping("admin/main")
     public String index(
             @AuthenticationPrincipal User user,
@@ -35,8 +30,6 @@ public class AdminController {
         } else {
             quizzes = quizRepository.findAll();
         }
-
-//        model.addAttribute("isAdmin", user.isAdmin());
         model.addAttribute("quizzes", quizzes);
 
         return "admin/main";

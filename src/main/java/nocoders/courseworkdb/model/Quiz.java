@@ -32,19 +32,16 @@ public class Quiz {
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Question> questions = new HashSet<>();
 
+
     public Quiz() {
     }
 
-    public Quiz(String name, String text, String tag, User author) {
+    public Quiz(String name, String text, String tag) {
         this.name = name;
         this.text = text;
         this.tag = tag;
-//        this.author = author;
     }
 
-//    public String getAuthorName() {
-//        return author != null ? author.getEmail() : "No author";
-//    }
 }
 
 

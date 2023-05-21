@@ -38,6 +38,8 @@
 <!--<nav th:replace="fragments/navbar :: navbar"></nav>-->
 <!--Шапка Сайта-->
 <header class="headder" th:insert="admin/blocks/header :: header"></header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 
 <br><br><br>
@@ -52,13 +54,13 @@
   <div th:if="${quizzes}"><h3 class="text-center">Тесты</h3></div>
   <div  class="fixed-div" th:replace="admin/quizList :: quizList (${quizzes})"></div>
 </div>
+<br>
 
-
-<footer th:replace="fragments/common :: footer"></footer>
 
 <!--Предпоследняя шапка-->
-
+<!--<div th:replace="fragments/common :: footer"></div>-->
 <div th:insert="admin/blocks/footer :: footer"></div>
+
 
 
 

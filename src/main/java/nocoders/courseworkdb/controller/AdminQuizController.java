@@ -5,7 +5,6 @@ import nocoders.courseworkdb.model.Quiz;
 import nocoders.courseworkdb.model.User;
 import nocoders.courseworkdb.repository.QuizRepository;
 import nocoders.courseworkdb.repository.QuestionRepository;
-//import nocoders.courseworkdb.repository.QuizRepository.java;
 import nocoders.courseworkdb.service.QuizService;
 import nocoders.courseworkdb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
