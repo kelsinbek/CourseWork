@@ -1,34 +1,50 @@
 <div th:fragment="header" xmlns:sec="http://www.w3.org/1999/xhtml">
     <header data-bs-theme="black">
-        <div class="navbar navbar-dark bg-black shadow-sm"
-             style="font-family: 'Roboto'; background-color: #FFFFFF !important;">
+        <div class="navbar navbar-dark bg-black shadow-sm" style="font-family: 'Roboto'; background-color: #FFFFFF !important;">
             <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <img src="/images/atom-solid.svg" alt="" style="width: 50px; height: 50px; font-weight: normal">
-                    <strong style="font-size: 35px; margin-left: 10px; color: black;">Free JRT</strong>
+                    <strong style="font-size: 35px; margin-left: 10px; color: #3F3D56;">Free JRT</strong>
                 </a>
                 <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="margin-right: 120px; font-size: 20px;">
-                    <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;"
-                       href="http://localhost:8080/test">Тесты</a>
-                    <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;"
-                       href="http://localhost:8080/aboutUs">О нас</a>
-                    <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;"
-                       href="http://localhost:8080/resource">Ресурсы</a>
+                    <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;" href="http://localhost:8080/test">Тесты</a>
+                    <a class="me-5 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;" href="http://localhost:8080/aboutUs">О нас</a>
+                    <a class="me-4 py-2 link-body-emphasis text-decoration-none" style="color: #0A092D;" href="http://localhost:8080/resource">Ресурсы</a>
                 </nav>
-                <span class="text-dark" sec:authentication="principal.username">User</span>
+                <style>
+                    .bg-color {
+                        background-color: #3F3D56;
+                    }
+                    dropdown-item:hover {
+                        background-color:#3F3D56 ;
+                    }
+                    .dropdown-item:active {
+                        background-color: #3F3D56;
+                    }
+                </style>
+                <div class="dropdown">
 
-                <span class="text-dark" sec:authorize="isAuthenticated()" style="margin-left: 20px;">
-                  <a class="text-light" th:href="@{/logout}" style="color: black !important;">Logout</a>
-                </span>
-
+                    <button class="btn btn-secondary dropdown-toggle bg-color" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512" style="fill: white;  margin-right: 5px;">
+                            <path d="M219.3 .5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128s-128-57.3-128-128V102.9L48 93.3v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3s-7.6 5.9-12.4 5.9H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64C0 52.6 8.1 42.7 19.3 40.5l200-40zM111.9 327.7c10.5-3.4 21.8 .4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5C401 348.6 448 409.4 448 481.3c0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z"/>
+                        </svg>
+                        <span class="text-light" sec:authentication="principal.username">User</span>
+                    </button>
+                    <div class="dropdown-menu logout-link " aria-labelledby="userDropdown">
+                        <a class="dropdown-item logout-link " th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
                 <a href="http://localhost:8080/users/profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" color="black" width="25" height="25"
-                         style="margin-left: 50px" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                        <path
-                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5-V7.207l5-5 5 5Z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" color="black" width="25" height="25" style="margin-left: 50px" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5-V7.207l5-5 5 5Z"/>
                     </svg>
                 </a>
             </div>
         </div>
     </header>
 </div>
+
+<!--&lt;!&ndash; Подключение необходимых стилей и скриптов &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>-->

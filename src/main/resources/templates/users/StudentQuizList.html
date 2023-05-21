@@ -1,28 +1,30 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="quizList (quizzes)">
-  <div class="card-columns">
+
+<div th:fragment="quizList (quizzes)" style="width: 350px; height: 200px;">
+  <div class="card-columns"  >
     <div th:each="quiz : ${quizzes}" class="card my-3">
 <!--      /*@thymesVar id="quiz" type="nocoders.courseworkdb.model.Quiz"*/-->
-      <div class="card-header pl-3 py-1">
-        <h6 class=" badge badge-dark">#<span th:text="${quiz.tag}"></span></h6>
+      <div class="card-header pl-3 py-1" style="background-color: #3F3D56" >
+
+        <h6 class=" badge bad" >#<span th:text="${quiz.tag}"></span></h6>
 
       </div>
       <div class="card-body">
         <h5 th:text="${quiz.name}" class="card-title">Quiz name</h5>
         <p class="card-text" th:text="${quiz.text}"></p>
-      </div>
+      </div >
+        <div class="card-footer" >
+            <style>
+                .custom-button {
+                    background-color: #3F3D56;
+                    color: white;
+                    /* Дополнительные стили по вашему выбору */
+                }
+            </style>
 
-
-
-        <div class="card-footer">
-            <a th:href="@{/q/__${quiz.id}__/questions}" class="btn btn-dark float-right btn-sm mb-2">Начать тест</a>
-
-
+            <a th:href="@{/q/__${quiz.id}__/questions}" class="btn custom-button float-right btn-sm mb-2">Начать тест</a>
         </div>
     </div>
-      <H1></H1>
   </div>
-
-
 </div>
 </html>
