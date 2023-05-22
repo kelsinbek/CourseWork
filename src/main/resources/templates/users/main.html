@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Подключение необходимых стилей и скриптов -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -113,9 +114,7 @@
     </div>
   </div>
 
-
-
-
+  <!--Отзыв-->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -164,7 +163,65 @@
                 <h3>Введите свой отзыв ниже:</h3>
                 <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
                 <br>
-                <input type="number" id="rating" name="rating" placeholder="Рейтинг" required>
+                <!--Звезды-->
+                <div class="rating">
+                  <input type="radio" id="star5" name="rating" value="5" />
+                  <label for="star5"></label>
+                  <input type="radio" id="star4" name="rating" value="4" />
+                  <label for="star4"></label>
+                  <input type="radio" id="star3" name="rating" value="3" />
+                  <label for="star3"></label>
+                  <input type="radio" id="star2" name="rating" value="2" />
+                  <label for="star2"></label>
+                  <input type="radio" id="star1" name="rating" value="1" />
+                  <label for="star1"></label>
+                </div>
+
+                <!--Style Звезды-->
+                <style>
+                  .rating {
+                    direction: rtl;
+                    unicode-bidi: bidi-override;
+                    text-align: center;
+                  }
+
+                  .rating > input {
+                    display: none;
+                  }
+
+                  .rating > label:before {
+                    content: "\2605";
+                    font-size: 25px;
+                  }
+
+                  .rating > label {
+                    display: inline-block;
+                    margin: 0 5px;
+                  }
+
+                  .rating > input:checked ~ label:before {
+                    content: "\2605";
+                    color: gold;
+                  }
+
+                  .rating > label:hover:before,
+                  .rating > label:hover ~ label:before {
+                    content: "\2605";
+                    color: gold;
+                  }
+                </style>
+
+                <!--JavaScript Звезды-->
+                <script>
+                  const ratingInputs = document.querySelectorAll('input[name="rating"]');
+                  ratingInputs.forEach(input => {
+                    input.addEventListener('click', () => {
+                      // Здесь можно добавить обработчик события для выбранной оценки
+                      console.log('Выбрана оценка:', input.value);
+                    });
+                  });
+                </script>
+
                 <br>
                 <input type="hidden" id="name" name="name" placeholder="Имя" required th:value="${#authentication.principal.username}" />
                 <br>
@@ -184,9 +241,7 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <script>
-
     $(document).ready(function() {
       $('#feedbackForm').submit(function(event) {
         event.preventDefault(); // Отменить обычную отправку формы
@@ -239,12 +294,6 @@
     .carousel-control-next-icon {
       color: red; /* Измените цвет стрелок здесь */
     }
-    .custom-button {
-      background-color: white;
-      color: black;
-      font-size: 40px;
-      font-family: 'Roboto';
-    }
 
     /* Rest of the CSS styles */
   </style>
@@ -252,7 +301,7 @@
   <div class="container" style="font-family: 'Roboto'">
     <div class="text-center py-5">
       <h1>
-        <input type="button" class="btn custom-button" data-toggle="modal" data-target="#myModal" value="Отзывы">
+        <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Отзывы">
       </h1>
     </div>
     <div class="text-center py-5">
@@ -313,14 +362,26 @@
 
         // Создайте содержимое карточки
         const cardContent = `
-          <div class="card custom-card">
-            <div class="card-body">
-              <h5 class="card-title">${card.username}</h5>
-              <p class="card-text">${card.comment}</p>
-              <p class="card-text">Рейтинг: ${card.rating} звезды</p>
-            </div>
-          </div>
-        `;
+  <div class="card custom-card" style="border-top: 10px solid #3F3D56; border-bottom: 10px solid #3F3D56;">
+    <div class="card-body d-flex flex-column justify-content-start align-items-start">
+      <h5 class="card-title">${card.username}</h5>
+      <p class="card-text">${card.comment}</p>
+      <p class="card-text">Оценка:
+        <div class="rating">
+          ${generateStars(card.rating)}
+        </div>
+      </p>
+    </div>
+  </div>
+`;
+
+        function generateStars(rating) {
+          const filledStars = '<i class="fas fa-star"></i>'.repeat(rating);
+          const emptyStars = '<i class="far fa-star"></i>'.repeat(5 - rating);
+          return emptyStars + filledStars;
+        }
+
+
 
         // Добавьте содержимое карточки в элемент карточки
         cardElement.innerHTML = cardContent;
@@ -330,6 +391,10 @@
       });
     });
   </script>
+
+
+  <!-- Подключение скриптов Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -372,6 +437,7 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
+  <br>
 
 
   <!--Последняя шапка-->
