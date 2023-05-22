@@ -49,15 +49,15 @@
 
 <div class="content">
 <div class="container">
-    <button type="button" class="btn btn-dark"><a class="me-3 py-5 link-body-emphasis text-decoration-none text-light" style="font-size: 20px" href="/blog/add">Добавить статью</a></button>
+    <button type="button" class="btn " style="background-color: #3F3D56;"><a class="me-3 py-5 link-body-emphasis text-decoration-none text-light" style="font-size: 20px; color: white" href="/blog/add">Добавить статью</a></button>
 </div>
 <div class="container mt-5">
     <h1>Ресурсы</h1><br>
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
         <h3 th:text="${el.title}"/>
         <a th:text="${el.anons}"></a>
-
-        <a th:href="'/blog/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+        <br><br>
+        <a th:href="'/blog/' + ${el.id}" class="btn " style="background-color: #3F3D56; color: white">Детальнее</a>
     </div>
 </div>
 </div>

@@ -55,7 +55,7 @@
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
         <h3 th:text="${el.title}"/>
         <p th:text="${el.anons}"/>
-        <a th:href="'/resource/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+        <a th:href="'/resource/' + ${el.id}" class="btn" style="background-color: #3F3D56; color: white">Детальнее</a>
     </div>
 </div>
 
