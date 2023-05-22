@@ -1,218 +1,273 @@
-  <!DOCTYPE HTML>
-  <html xmlns:th="http://www.thymeleaf.org"
-        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-  <head>
-    <!-- Подключение необходимых стилей и скриптов -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/mainStudent.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <!-- Подключение необходимых стилей и скриптов -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/mainStudent.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Подключение необходимых стилей и скриптов -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-
-
-    <title>profile</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  </head>
-  <body>
-  <!--Шапка Сайта-->
-  <header class="headder" th:insert="users/blocks/header :: header"></header>
+  <!-- Подключение необходимых стилей и скриптов -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 
-  <!--Второй блог-->
-  <div class="p-3 mb-2  text-dark bg-opacity-10" style="background-color: #FFFFFF; color: #f5f5f5;">
-    <div class="container py-5" style="font-family: 'Roboto'">
-      <div class="row align-items-md-stretch py-5">
-        <div class="col-md-6 ">
-          <h2 style="font-weight: bold ; margin: 20px;">Пройдите бесплатный <br> тест в Free JRT st</h2>
-          <button type="button" class="btn" style="margin:20px; background-color: #6C63FF; color: white;" onclick="window.location.href='http://localhost:8080/test'">Давайте начнем!</button>
+  <title>profile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!--Шапка Сайта-->
+<header class="headder" th:insert="users/blocks/header :: header"></header>
 
-        </div>
-        <div class="col-md-6">
-          <style>
-            .custom-button {
-              background-color: #6C63FF;
-              color: white;
-              /* Дополнительные стили по вашему выбору */
-            }
-          </style>
-          <img src="/images/mainImage.svg" alt="картинка на сайте"  width="500" height="300">
-        </div>
+
+<!--Второй блог-->
+<div class="p-3 mb-2  text-dark bg-opacity-10" style="background-color: #FFFFFF; color: #f5f5f5;">
+  <div class="container py-5" style="font-family: 'Roboto'">
+    <div class="row align-items-md-stretch py-5">
+      <div class="col-md-6 ">
+        <h2 style="font-weight: bold ; margin: 20px;">Пройдите бесплатный <br> тест в Free JRT st</h2>
+        <button type="button" class="btn" style="margin:20px; background-color: #6C63FF; color: white;" onclick="window.location.href='http://localhost:8080/test'">Давайте начнем!</button>
+
       </div>
-    </div>
-  </div>
-
-  <!--Третий блог(означение названий веб-приложении)-->
-  <div class="container mt-5" style="font-family: 'Roboto'; box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);">
-    <p class="text-center" style="font-size: 50px">Что такое <span style="color: #6C63FF;">Free JRT</span>?</p>
-    <p class="text-center py-5" style="font-size: 25px">Free JRT — это бесплатное веб-приложение, которое предоставляет<br>возможность бесплатно проходить тесты ORT</p>
-  </div>
-
-
-
-
-
-
-  <!--Четвертый блог(приумущества веб-приложении)-->
-  <div class="p-3 mb-2 bg-white text-dark bg-opacity-0 py-5 h-100">
-    <div class="container" style="font-family: 'Roboto'">
-      <div class="row mb-2">
-        <!-- Первая иконка -->
-        <div class="col-md-6 py-5">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
-            <div class="col-auto d-none d-lg-block">
-              <img src="/images/book.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Бесплатность</h3>
-              <p class="card-text mb-auto"><br>Наше веб-приложение предоставляет возможность пройти тесты и узнать свой балл бесплатно, что может быть очень важным для абитуриентов, которые не могут позволить себе платить за другие услуги подготовки к тестированию.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Вторая иконка -->
-        <div class="col-md-6 py-5">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
-            <div class="col-auto d-none d-lg-block">
-              <img src="/images/resultt.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Быстрые результаты</h3>
-              <p class="card-text mb-auto"><br>Наше веб-приложение может предоставить быстрые результаты тестов, что позволит студентам получить обратную связь и сделать корректировки в своей подготовке, если это необходимо.<br></p>
-            </div>
-          </div>
-        </div>
-        <!-- Третья иконка -->
-        <div class="col-md-6 py-5">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
-            <div class="col-auto d-none d-lg-block">
-              <img src="/images/hand.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Легкость использования</h3>
-              <p class="card-text mb-auto"><br>Наше веб-приложение должно быть простым в использовании и интуитивно понятным для абитуриентов, даже если они не имеют опыта работы с подобными веб-приложениями.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Четвертая иконка -->
-        <div class="col-md-6 py-5">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
-            <div class="col-auto d-none d-lg-block">
-              <img src="/images/progres.svg" width="100" height="100" style="margin: 10px; padding: 5px;" />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Актуальность</h3>
-              <p class="card-text mb-auto"><br>Наше веб-приложение может обновляться регулярно, что позволит студентам использовать его для подготовки к тестированию на последних версиях тестов и с текущей информацией.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title text-center">Отзывы</h1>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+      <div class="col-md-6">
         <style>
-          .form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .form-container h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-          }
-
-          .form-container input[type="text"],
-          .form-container input[type="number"] {
-            width: 300px;
-            height: 30px;
-            margin-bottom: 10px;
-            padding: 5px;
-            font-size: 16px;
-          }
-
-          .form-container input[type="submit"] {
-            width: 150px;
-            height: 40px;
-            background-color: #4caf50;
+          .custom-button {
+            background-color: #6C63FF;
             color: white;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
+            /* Дополнительные стили по вашему выбору */
           }
         </style>
-        <div class="modal-body">
-          <div class="container" style="font-family: 'Roboto'">
-            <div class="text-center py-5">
-              <form id="feedbackForm" class="form-container" method="post" action="/update">
-                <br>
-                <h3>Введите свой отзыв ниже:</h3>
-                <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
-                <br>
-                <input type="number" id="rating" name="rating" placeholder="Рейтинг" required>
-                <br>
-                <input type="hidden" id="name" name="name" placeholder="Имя" required th:value="${#authentication.principal.username}" />
-                <br>
-                <input type="submit" value="Отправить" />
-                <script>
-                  $('#myModal').on('hidden.bs.modal', function () {
-                    // Очищаем содержимое модального окна при его закрытии
-                    $(this).find('form').trigger('reset');
-                  });
-                </script>
-              </form>
-            </div>
+        <img src="/images/mainImage.svg" alt="картинка на сайте"  width="500" height="300">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Третий блог(означение названий веб-приложении)-->
+<div class="container mt-5" style="font-family: 'Roboto'; box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);">
+  <p class="text-center" style="font-size: 50px">Что такое <span style="color: #6C63FF;">Free JRT</span>?</p>
+  <p class="text-center py-5" style="font-size: 25px">Free JRT — это бесплатное веб-приложение, которое предоставляет<br>возможность бесплатно проходить тесты ORT</p>
+</div>
+
+
+
+
+
+
+<!--Четвертый блог(приумущества веб-приложении)-->
+<div class="p-3 mb-2 bg-white text-dark bg-opacity-0 py-5 h-100">
+  <div class="container" style="font-family: 'Roboto'">
+    <div class="row mb-2">
+      <!-- Первая иконка -->
+      <div class="col-md-6 py-5">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
+          <div class="col-auto d-none d-lg-block">
+            <img src="/images/book.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
+          </div>
+          <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">Бесплатность</h3>
+            <p class="card-text mb-auto"><br>Наше веб-приложение предоставляет возможность пройти тесты и узнать свой балл бесплатно, что может быть очень важным для абитуриентов, которые не могут позволить себе платить за другие услуги подготовки к тестированию.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Вторая иконка -->
+      <div class="col-md-6 py-5">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
+          <div class="col-auto d-none d-lg-block">
+            <img src="/images/resultt.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
+          </div>
+          <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">Быстрые результаты</h3>
+            <p class="card-text mb-auto"><br>Наше веб-приложение может предоставить быстрые результаты тестов, что позволит студентам получить обратную связь и сделать корректировки в своей подготовке, если это необходимо.<br></p>
+          </div>
+        </div>
+      </div>
+      <!-- Третья иконка -->
+      <div class="col-md-6 py-5">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
+          <div class="col-auto d-none d-lg-block">
+            <img src="/images/hand.svg" width="100" height="100" style="margin: 10px; padding: 5px;"/>
+          </div>
+          <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">Легкость использования</h3>
+            <p class="card-text mb-auto"><br>Наше веб-приложение должно быть простым в использовании и интуитивно понятным для абитуриентов, даже если они не имеют опыта работы с подобными веб-приложениями.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Четвертая иконка -->
+      <div class="col-md-6 py-5">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-100">
+          <div class="col-auto d-none d-lg-block">
+            <img src="/images/progres.svg" width="100" height="100" style="margin: 10px; padding: 5px;" />
+          </div>
+          <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">Актуальность</h3>
+            <p class="card-text mb-auto"><br>Наше веб-приложение может обновляться регулярно, что позволит студентам использовать его для подготовки к тестированию на последних версиях тестов и с текущей информацией.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--Отзыв-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-center">Отзывы</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <style>
+        .form-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-  <script>
+        .form-container h3 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
 
-    $(document).ready(function() {
-      $('#feedbackForm').submit(function(event) {
-        event.preventDefault(); // Отменить обычную отправку формы
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+          width: 300px;
+          height: 30px;
+          margin-bottom: 10px;
+          padding: 5px;
+          font-size: 16px;
+        }
 
-        var form = $(this);
-        var url = form.attr('action');
+        .form-container input[type="submit"] {
+          width: 150px;
+          height: 40px;
+          background-color: #4caf50;
+          color: white;
+          font-size: 18px;
+          border: none;
+          cursor: pointer;
+        }
+      </style>
+      <div class="modal-body">
+        <div class="container" style="font-family: 'Roboto'">
+          <div class="text-center py-5">
+            <form id="feedbackForm" class="form-container" method="post" action="/update">
+              <br>
+              <h3>Введите свой отзыв ниже:</h3>
+              <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
+              <br>
+              <!--Звезды-->
+              <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5"></label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4"></label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1"></label>
+              </div>
 
-        $.ajax({
-          type: 'POST',
-          url: url,
-          data: form.serialize(), // Сериализовать данные формы
-          success: function(response) {
-            // Здесь можно добавить код для обработки успешного ответа
-            // Например, можно очистить поля формы или обновить таблицу отзывов
-            form.trigger('reset'); // Очистить поля формы
-            $('#myModal').modal('hide'); // Закрыть модальное окно
-            location.reload(); // Перезагрузить страницу
-          }
-        });
+              <!--Style Звезды-->
+              <style>
+                .rating {
+                  direction: rtl;
+                  unicode-bidi: bidi-override;
+                  text-align: center;
+                }
+
+                .rating > input {
+                  display: none;
+                }
+
+                .rating > label:before {
+                  content: "\2605";
+                  font-size: 25px;
+                }
+
+                .rating > label {
+                  display: inline-block;
+                  margin: 0 5px;
+                }
+
+                .rating > input:checked ~ label:before {
+                  content: "\2605";
+                  color: gold;
+                }
+
+                .rating > label:hover:before,
+                .rating > label:hover ~ label:before {
+                  content: "\2605";
+                  color: gold;
+                }
+              </style>
+
+              <!--JavaScript Звезды-->
+              <script>
+                const ratingInputs = document.querySelectorAll('input[name="rating"]');
+                ratingInputs.forEach(input => {
+                  input.addEventListener('click', () => {
+                    // Здесь можно добавить обработчик события для выбранной оценки
+                    console.log('Выбрана оценка:', input.value);
+                  });
+                });
+              </script>
+
+              <br>
+              <input type="hidden" id="name" name="name" placeholder="Имя" required th:value="${#authentication.principal.username}" />
+              <br>
+              <input type="submit" value="Отправить" />
+              <script>
+                $('#myModal').on('hidden.bs.modal', function () {
+                  // Очищаем содержимое модального окна при его закрытии
+                  $(this).find('form').trigger('reset');
+                });
+              </script>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#feedbackForm').submit(function(event) {
+      event.preventDefault(); // Отменить обычную отправку формы
+
+      var form = $(this);
+      var url = form.attr('action');
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: form.serialize(), // Сериализовать данные формы
+        success: function(response) {
+          // Здесь можно добавить код для обработки успешного ответа
+          // Например, можно очистить поля формы или обновить таблицу отзывов
+          form.trigger('reset'); // Очистить поля формы
+          $('#myModal').modal('hide'); // Закрыть модальное окно
+          location.reload(); // Перезагрузить страницу
+        }
       });
     });
+  });
 
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
 
 <!--  <div class="text-center py-5">-->
@@ -225,117 +280,127 @@
 
 
 
-  <style>
-    .custom-card {
-      width: 500px;
-      height: 250px;
-      margin-right: 10px;
-    }
-    .carousel-container {
-      display: flex;
-      justify-content: center;
-    }
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      color: red; /* Измените цвет стрелок здесь */
-    }
-    .custom-button {
-      background-color: white;
-      color: black;
-      font-size: 40px;
-      font-family: 'Roboto';
-    }
+<style>
+  .custom-card {
+    width: 500px;
+    height: 250px;
+    margin-right: 10px;
+  }
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    color: red; /* Измените цвет стрелок здесь */
+  }
 
-    /* Rest of the CSS styles */
-  </style>
+  /* Rest of the CSS styles */
+</style>
 
-  <div class="container" style="font-family: 'Roboto'">
-    <div class="text-center py-5">
-      <h1>
-        <input type="button" class="btn custom-button" data-toggle="modal" data-target="#myModal" value="Отзывы">
-      </h1>
-    </div>
-    <div class="text-center py-5">
-      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-container " style="margin-left: 400px">
-          <div class="carousel-inner">
-            <!-- Здесь будут добавлены элементы карусели -->
-          </div>
+<div class="container" style="font-family: 'Roboto'">
+  <div class="text-center py-5">
+    <h1>
+      <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Отзывы">
+    </h1>
+  </div>
+  <div class="text-center py-5">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-container " style="margin-left: 400px">
+        <div class="carousel-inner">
+          <!-- Здесь будут добавлены элементы карусели -->
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Назад</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Вперед</span>
-        </button>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Назад</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Вперед</span>
+      </button>
     </div>
   </div>
-  <table>
-    <tr style="display: none;" th:each="feedback : ${feedbacks}">
-      <td th:text="${feedback.comments}"></td>
-      <td th:text="${feedback.rating}"></td>
-      <td th:text="${feedback.username}"></td>
-    </tr>
-  </table>
+</div>
+<table>
+  <tr style="display: none;" th:each="feedback : ${feedbacks}">
+    <td th:text="${feedback.comments}"></td>
+    <td th:text="${feedback.rating}"></td>
+    <td th:text="${feedback.username}"></td>
+  </tr>
+</table>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Получите элемент карусели
-      const carousel = document.getElementById('carouselExample');
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Получите элемент карусели
+    const carousel = document.getElementById('carouselExample');
 
-      // Получите контейнер для карточек внутри карусели
-      const carouselInner = carousel.querySelector('.carousel-inner');
+    // Получите контейнер для карточек внутри карусели
+    const carouselInner = carousel.querySelector('.carousel-inner');
 
-      // Получите все строки таблицы
-      const rows = document.querySelectorAll('table tr');
+    // Получите все строки таблицы
+    const rows = document.querySelectorAll('table tr');
 
-      // Преобразуйте данные из таблицы в массив объектов
-      const cards = [];
-      for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        const comment = row.cells[0].textContent;
-        const rating = row.cells[1].textContent;
-        const username = row.cells[2].textContent;
-        cards.push({ comment, rating, username });
+    // Преобразуйте данные из таблицы в массив объектов
+    const cards = [];
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const comment = row.cells[0].textContent;
+      const rating = row.cells[1].textContent;
+      const username = row.cells[2].textContent;
+      cards.push({ comment, rating, username });
+    }
+
+    // Создайте карточки и добавьте их в карусель
+    cards.forEach((card, index) => {
+      // Создайте элемент карточки
+      const cardElement = document.createElement('div');
+      cardElement.classList.add('carousel-item');
+      if (index === 0) {
+        cardElement.classList.add('active');
       }
 
-      // Создайте карточки и добавьте их в карусель
-      cards.forEach((card, index) => {
-        // Создайте элемент карточки
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('carousel-item');
-        if (index === 0) {
-          cardElement.classList.add('active');
-        }
+      // Создайте содержимое карточки
+      const cardContent = `
+  <div class="card custom-card" style="border-top: 10px solid #3F3D56; border-bottom: 10px solid #3F3D56;">
+    <div class="card-body d-flex flex-column justify-content-start align-items-start">
+      <h5 class="card-title">${card.username}</h5>
+      <p class="card-text">${card.comment}</p>
+      <p class="card-text">Оценка:
+        <div class="rating">
+          ${generateStars(card.rating)}
+        </div>
+      </p>
+    </div>
+  </div>
+`;
 
-        // Создайте содержимое карточки
-        const cardContent = `
-          <div class="card custom-card">
-            <div class="card-body">
-              <h5 class="card-title">${card.username}</h5>
-              <p class="card-text">${card.comment}</p>
-              <p class="card-text">Рейтинг: ${card.rating} звезды</p>
-            </div>
-          </div>
-        `;
+      function generateStars(rating) {
+        const filledStars = '<i class="fas fa-star"></i>'.repeat(rating);
+        const emptyStars = '<i class="far fa-star"></i>'.repeat(5 - rating);
+        return emptyStars + filledStars;
+      }
 
-        // Добавьте содержимое карточки в элемент карточки
-        cardElement.innerHTML = cardContent;
 
-        // Добавьте карточку в контейнер карусели
-        carouselInner.appendChild(cardElement);
-      });
+
+      // Добавьте содержимое карточки в элемент карточки
+      cardElement.innerHTML = cardContent;
+
+      // Добавьте карточку в контейнер карусели
+      carouselInner.appendChild(cardElement);
     });
-  </script>
+  });
+</script>
+
+
+<!-- Подключение скриптов Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 
 
-  <!-- Подключите необходимые стили и скрипты -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- Подключите необходимые стили и скрипты -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -346,7 +411,7 @@
 
 
 
-  <!--  &lt;!&ndash;Пятый блог(отзывы)&ndash;&gt;-->
+<!--  &lt;!&ndash;Пятый блог(отзывы)&ndash;&gt;-->
 <!--  <div class="container" style="font-family: 'Roboto'">-->
 
 <!--    <div class="text-center py-5">-->
@@ -372,9 +437,10 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
+<br>
 
 
-  <!--Последняя шапка-->
-  <div th:insert="users/blocks/footer :: footer"></div>
-  </body>
-  </html>
+<!--Последняя шапка-->
+<div th:insert="users/blocks/footer :: footer"></div>
+</body>
+</html>
