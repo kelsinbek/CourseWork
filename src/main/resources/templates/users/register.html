@@ -32,7 +32,8 @@
         <form th:action="@{/registration}" method="post" class="ms-5" th:object="${user}">
 
 
-            <h2 class="title">Registration</h2>
+            <h2 class="title">Hello, friend!</h2>
+            <br>
 
 
 
@@ -75,7 +76,7 @@
                     <input type="password" class="input" name="password" required>
                 </div>
             </div>
-            <input type="submit" class="btn text-white" value="Sign in" style=" border-radius: 300px;">
+            <input type="submit" class="btn text-white" value="Create Account" style=" border-radius: 300px;">
             <div class="d-flex flex-row justify-content-center">Do you already have an account? <a href="/" th:href="@{/login}">Go here</a></div>
         </form>
     </div>

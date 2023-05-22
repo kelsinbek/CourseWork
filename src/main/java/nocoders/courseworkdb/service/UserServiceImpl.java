@@ -1,6 +1,5 @@
 package nocoders.courseworkdb.service;
 
-//package net.javaguides.springboot.service;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;

@@ -15,13 +15,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <title>Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        .wrapper {
+            position: relative;
+            min-height: 100%;
+        }
+        .content {
+            padding-bottom: 220px;
+        }
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+
 </head>
 <body>
 <!--Шапка сайта-->
 <header class="headder" th:insert="users/blocks/header :: header"></header>
+
 <!--Рекомендуемые видео из ютуба-->
-<div class="container mt-5">
+
+<div class="content container mt-5">
     <br><br><br>
     <h1>Ресурсы</h1><br>
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
