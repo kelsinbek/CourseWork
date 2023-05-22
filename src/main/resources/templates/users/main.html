@@ -125,28 +125,68 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <style>
+          .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .form-container h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          .form-container input[type="text"],
+          .form-container input[type="number"] {
+            width: 300px;
+            height: 30px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
+          }
+
+          .form-container input[type="submit"] {
+            width: 150px;
+            height: 40px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+          }
+        </style>
         <div class="modal-body">
-          <form id="feedbackForm" method="post" action="/update">
-            <br>
-            <h3>Введите свой отзыв ниже:</h3>
-            <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
-            <br>
-            <input type="number" id="rating" name="rating" placeholder="Рейтинг" required>
-            <br>
-            <input type="text" id="name" name="name" placeholder="Имя" required>
-            <br>
-            <input type="submit" value="Отправить" />
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <div class="container" style="font-family: 'Roboto'">
+            <div class="text-center py-5">
+              <form id="feedbackForm" class="form-container" method="post" action="/update">
+                <br>
+                <h3>Введите свой отзыв ниже:</h3>
+                <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
+                <br>
+                <input type="number" id="rating" name="rating" placeholder="Рейтинг" required>
+                <br>
+                <input type="hidden" id="name" name="name" placeholder="Имя" required th:value="${#authentication.principal.username}" />
+                <br>
+                <input type="submit" value="Отправить" />
+                <script>
+                  $('#myModal').on('hidden.bs.modal', function () {
+                    // Очищаем содержимое модального окна при его закрытии
+                    $(this).find('form').trigger('reset');
+                  });
+                </script>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
+
     $(document).ready(function() {
       $('#feedbackForm').submit(function(event) {
         event.preventDefault(); // Отменить обычную отправку формы
@@ -188,7 +228,7 @@
   <style>
     .custom-card {
       width: 500px;
-      height: 400px;
+      height: 250px;
       margin-right: 10px;
     }
     .carousel-container {
