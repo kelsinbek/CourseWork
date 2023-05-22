@@ -376,8 +376,8 @@
 `;
 
       function generateStars(rating) {
-        const filledStars = '<i class="fas fa-star"></i>'.repeat(rating);
-        const emptyStars = '<i class="far fa-star"></i>'.repeat(5 - rating);
+        const filledStars = '<i class="fas fa-star" style="color: orange;"></i>'.repeat(rating);
+        const emptyStars = '<i class="far fa-star" style="color: orange;"></i>'.repeat(5 - rating);
         return emptyStars + filledStars;
       }
 
