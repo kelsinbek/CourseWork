@@ -9,13 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class MainController {
 
-//    @GetMapping("/users/profile")
-//    public String profile(Model model) {
-//        model.addAttribute("title", "Страница абитуриента");
-//        return "users/main";
-//    }
-
-
     @GetMapping("/login")
     public String UserPage(Model model) {
         model.addAttribute("title", "Страница абитуриента");
