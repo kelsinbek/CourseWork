@@ -29,7 +29,7 @@
   <div class="container py-5" style="font-family: 'Roboto'">
     <div class="row align-items-md-stretch py-5">
       <div class="col-md-6 ">
-        <h2 style="font-weight: bold ; margin: 20px;">Пройдите бесплатный <br> тест в Free JRT</h2>
+        <h2 style="font-weight: bold ; margin: 20px;">Пройдите бесплатный <br> тест в Free JRT st</h2>
         <button type="button" class="btn" style="margin:20px; background-color: #6C63FF; color: white;" onclick="window.location.href='http://localhost:8080/test'">Давайте начнем!</button>
 
       </div>
@@ -161,26 +161,6 @@
             <form id="feedbackForm" class="form-container" method="post" action="/update">
               <br>
               <h3>Введите свой отзыв ниже:</h3>
-              <style>
-                /* Стили для поля ввода комментария */
-                #comment {
-                  width: 450px;
-                  height: 100px;
-                  padding: 10px;
-                  font-size: 16px;
-                  border: 2px solid #3F3D56;
-                  border-radius: 5px;
-                  resize: vertical;
-                }
-
-                /* При фокусе на поле ввода изменяем стиль границы */
-                #comment:focus {
-                  outline: none;
-                  border-color: #FFA500;
-                  box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
-                }
-              </style>
-
               <input type="text" id="comment" name="comment" placeholder="Комментарий" required>
               <br>
               <!--Звезды-->
@@ -245,7 +225,7 @@
               <br>
               <input type="hidden" id="name" name="name" placeholder="Имя" required th:value="${#authentication.principal.username}" />
               <br>
-              <input type="submit" value="Отправить"  style="background-color: #3F3D56; color: white"/>
+              <input type="submit" value="Отправить" />
               <script>
                 $('#myModal').on('hidden.bs.modal', function () {
                   // Очищаем содержимое модального окна при его закрытии
@@ -321,7 +301,7 @@
 <div class="container" style="font-family: 'Roboto'">
   <div class="text-center py-5">
     <h1>
-      <input type="button" class="btn" style="background-color: white; color: black; font-size: 40px" data-toggle="modal" data-target="#myModal" value="Отзывы">
+      <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Отзывы">
     </h1>
   </div>
   <div class="text-center py-5">
@@ -400,7 +380,6 @@
         const emptyStars = '<i class="far fa-star" style="color: orange;"></i>'.repeat(5 - rating);
         return emptyStars + filledStars;
       }
-
 
 
       // Добавьте содержимое карточки в элемент карточки

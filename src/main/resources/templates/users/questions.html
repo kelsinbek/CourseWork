@@ -17,12 +17,12 @@
 <div th:replace="users/navbar.html :: navbar"></div>
 
 <div class="container py-5 px-4">
-  <h1 class="bg-dark text-light">Выбирайте только правильные ответы</h1>
+  <h1 class="text-light" style="background-color: #3F3D56">Выбирайте только правильные ответы</h1>
 
 
   <form action="submit" method="POST" th:object="${qForm}">
-    <div class="ques-box bg-dark text-light" th:each="ques, i: ${qForm.questions}">
-      <p class="title text-light" th:text="${ques.title}"></p>
+    <div class="ques-box text-light" style="background-color: #3F3D56" th:each="ques, i: ${qForm.questions}">
+      <p class="title text-light" style="background-color: rgba(108, 99, 255, 0.5);" th:text="${ques.title}"></p>
 
       <div class="option">
         <input type="radio" th:name="${'questions[' + i.index + '].chose'}" th:value="1" />
@@ -44,7 +44,7 @@
       <input type="hidden" th:name="${'questions[' + i.index + '].ans'}" th:value="${ques.ans}" />
     </div>
 
-    <button type="submit" class="btn btn-dark d-block mx-auto mt-4">Проверить</button>
+    <button type="submit" class="btn btn-primary d-block mx-auto mt-4" style="background-color: rgba(0, 0, 255, 0.5);">Проверить</button>
   </form>
 
 
